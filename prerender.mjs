@@ -1,6 +1,6 @@
 // Build step: render every route to static HTML with its own <head>, plus 404, sitemap, robots and llms.txt.
 import fs from 'node:fs'
-import { render, ROUTES, SITE, headTags, llmsTxt } from './dist-ssr/entry-server.js'
+import { render, ROUTES, SITE, UPDATED, headTags, llmsTxt } from './dist-ssr/entry-server.js'
 
 const tpl = fs.readFileSync('dist/index.html', 'utf8')
 if (!tpl.includes('<!--head-->') || !tpl.includes('<div id="root"></div>')) throw new Error('index.html is missing its <!--head--> or root placeholder')
@@ -20,13 +20,12 @@ for (const url of ROUTES) {
 }
 fs.writeFileSync('dist/404.html', page('/404'))
 
-const today = new Date().toISOString().slice(0, 10)
 fs.writeFileSync('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${ROUTES.map((u) => `  <url><loc>${SITE}${u === '/' ? '/' : u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
+${ROUTES.map((u) => `  <url><loc>${SITE}${u === '/' ? '/' : u}</loc><lastmod>${UPDATED}</lastmod></url>`).join('\n')}
 </urlset>
 `)
-fs.writeFileSync('dist/robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`)
+fs.writeFileSync('dist/robots.txt', `# Search engines and AI answer engines are welcome, including GPTBot, OAI-SearchBot,\n# ChatGPT-User, PerplexityBot, ClaudeBot, Claude-SearchBot, Google-Extended, Applebot-Extended and Bingbot.\nUser-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`)
 fs.writeFileSync('dist/llms.txt', llmsTxt())
 
 fs.rmSync('dist-ssr', { recursive: true, force: true })

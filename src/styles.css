@@ -936,3 +936,17 @@ html.is-loading { overflow: hidden; }
   .chain-compact li { padding-bottom: 14px; }
   .chain-compact .chain-name { font-size: 1.05rem; }
 }
+
+/* ─── Questions people ask ─── */
+.sec-faq .sec-head .mono { color: var(--ink-3); font-size: 0.72rem; }
+.faq { border-top: 2px solid var(--ink); }
+.faq-item { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 12px 56px; padding: 28px 0; border-bottom: 1px solid var(--rule-2); }
+.faq-item h3 { margin: 0; font-size: clamp(1.15rem, 1.6vw, 1.45rem); font-weight: 720; font-stretch: 108%; letter-spacing: -0.015em; line-height: 1.25; }
+.faq-item p { margin: 0; max-width: 62ch; color: var(--ink-2); }
+.sec-points + .sec-faq, .sec-work + .sec-faq { padding-top: clamp(40px, 6vw, 88px); }
+@media (max-width: 819px) {
+  .faq { border-top-width: 1px; }
+  .faq-item { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 22px 0; border-bottom-color: var(--rule); }
+  .faq-item h3 { font-size: 1.12rem; font-stretch: 102%; }
+  .faq-item p { color: var(--ink-3); }
+}

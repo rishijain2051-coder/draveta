@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
-import { PRODUCTS, product, SERVICES, TIMELINE, WEBSITES, PHONE, CITY } from './data.js'
+import { PRODUCTS, product, SERVICES, TIMELINE, WEBSITES, HOME_FAQ, ERP_FAQ, UPDATED, PHONE, CITY } from './data.js'
+
+export { UPDATED }
 
 // Canonical origin. Switch to https://draveta.com (one line) once that domain serves this site.
 export const SITE = 'https://draveta.vercel.app'
@@ -115,7 +117,18 @@ const org = {
     { '@type': 'Person', name: 'Rishi Jain', jobTitle: 'Partner' },
   ],
   knowsAbout: ['Custom software development', ...SERVICES.map((s) => s.name), 'ERP software', 'Hotel management software', 'Timber industry software'],
+  makesOffer: SERVICES.map((s) => ({
+    '@type': 'Offer',
+    itemOffered: { '@type': 'Service', name: `Custom ${s.name.toLowerCase()} development`, description: s.desc, provider: { '@id': ORG_ID }, areaServed: { '@type': 'Country', name: 'India' } },
+  })),
 }
+
+// FAQ schema is built from the same arrays the page renders, so the markup always matches the visible answers.
+const faqPage = (items) => ({
+  '@type': 'FAQPage',
+  mainEntity: items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+})
+const webPage = (m) => ({ '@type': 'WebPage', '@id': `${m.url}#page`, url: m.url, name: m.title, inLanguage: 'en-IN', dateModified: UPDATED, isPartOf: { '@id': `${SITE}/#site` }, publisher: { '@id': ORG_ID } })
 
 const crumbs = (items) => ({
   '@type': 'BreadcrumbList',
@@ -125,23 +138,25 @@ const crumbs = (items) => ({
 export function jsonLd(rawPath) {
   const path = clean(rawPath)
   const m = pageMeta(path)
-  const graph = [org]
-  if (path === '/') graph.push({ '@type': 'WebSite', '@id': `${SITE}/#site`, name: BRAND, url: `${SITE}/`, publisher: { '@id': ORG_ID } })
+  const graph = [org, webPage(m)]
+  if (path === '/') graph.push({ '@type': 'WebSite', '@id': `${SITE}/#site`, name: BRAND, url: `${SITE}/`, inLanguage: 'en-IN', publisher: { '@id': ORG_ID } }, faqPage(HOME_FAQ))
   const slug = path.startsWith('/products/') && path.slice('/products/'.length)
   if (slug && product(slug)) {
     const p = product(slug)
     graph.push({
       '@type': 'SoftwareApplication',
       name: p.name,
-      description: p.desc,
+      description: p.lede,
       applicationCategory: PRODUCT_SEO[slug].category,
       operatingSystem: 'Web browser',
       url: m.url,
+      dateModified: UPDATED,
+      author: { '@id': ORG_ID },
       publisher: { '@id': ORG_ID },
     })
-    graph.push(crumbs([['Home', `${SITE}/`], [p.name, m.url]]))
+    graph.push(faqPage(p.faq), crumbs([['Home', `${SITE}/`], [p.name, m.url]]))
   }
-  if (path === '/work/oswal-erp') graph.push(crumbs([['Home', `${SITE}/`], ['Oswal Handicrafts ERP', m.url]]))
+  if (path === '/work/oswal-erp') graph.push(faqPage(ERP_FAQ), crumbs([['Home', `${SITE}/`], ['Oswal Handicrafts ERP', m.url]]))
   return { '@context': 'https://schema.org', '@graph': graph }
 }
 
@@ -190,15 +205,27 @@ export function llmsTxt() {
     '',
     `> Software company in ${CITY}, India. Builds custom web apps, mobile apps, websites, ERPs and automation from scratch. Phone and WhatsApp: ${PHONE}.`,
     '',
+    `Last updated: ${UPDATED}`,
+    '',
+    '## Key facts',
+    `- Location: ${CITY}, India`,
+    `- Contact: ${PHONE} (call or WhatsApp). Support runs 24/7.`,
+    '- Partners: Naman Dhariwal, Rishi Jain',
+    '- Experience: 15 years combined',
+    `- Services: ${SERVICES.map((s) => `${s.name} (${s.desc.replace(/\.$/, '')})`).join('; ')}`,
+    '',
     '## Built, in order',
     ...TIMELINE.flatMap((g) => [`### ${g.name}`, ...g.items.map((i) => `- ${i.to ? `[${i.name}](${SITE}${i.to})` : i.name}: ${i.line}`)]),
     '',
     '## Client websites',
     ...WEBSITES.map((w) => `- ${w}`),
     '',
+    '## Questions people ask',
+    ...[...HOME_FAQ, ...PRODUCTS.flatMap((p) => p.faq), ...ERP_FAQ].flatMap(([q, a]) => [`### ${q}`, a, '']),
     '## Pages',
     `- [About](${SITE}/about)`,
     `- [Contact](${SITE}/contact)`,
+    `- [Oswal Handicrafts ERP case](${SITE}/work/oswal-erp)`,
   ]
   return lines.join('\n') + '\n'
 }

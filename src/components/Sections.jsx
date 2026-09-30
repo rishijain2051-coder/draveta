@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { PRODUCTS, TIMELINE, WEBSITES, inGroup, SERVICES, PHONE, TEL, wa, CITY } from '../data.js'
+import { PRODUCTS, TIMELINE, WEBSITES, UPDATED, inGroup, SERVICES, PHONE, TEL, wa, CITY } from '../data.js'
 import { Costing } from './Demos.jsx'
 import Icon from './Icon.jsx'
 
@@ -249,6 +249,30 @@ export function Close({ preset, title = 'Tell us what to build.' }) {
         <p className="close-meta mono"><span><Icon name="pin" size={16} /> {CITY}</span><span><Icon name="clock" size={16} /> Support 24/7</span></p>
       </div>
       <DemoForm preset={preset} />
+    </section>
+  )
+}
+
+// Formatted by hand so the build (Node) and the browser print exactly the same text.
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const [uy, um, ud] = UPDATED.split('-').map(Number)
+const updated = `${ud} ${MONTHS[um - 1]} ${uy}`
+
+export function Faq({ items, title = 'Questions people ask' }) {
+  return (
+    <section className="sec sec-faq" aria-labelledby="faq-h">
+      <div className="sec-head">
+        <h2 id="faq-h">{title}</h2>
+        <p className="mono">Last updated <time dateTime={UPDATED}>{updated}</time></p>
+      </div>
+      <div className="faq">
+        {items.map(([q, a]) => (
+          <div key={q} className="faq-item">
+            <h3>{q}</h3>
+            <p>{a}</p>
+          </div>
+        ))}
+      </div>
     </section>
   )
 }

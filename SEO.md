@@ -43,6 +43,43 @@ Keywords are not verified against search-volume data (no keyword tool is connect
 
 Validate after deploy at <https://search.google.com/test/rich-results>.
 
+## AEO / GEO (answer engines and AI search)
+
+Google AI Overviews use normal Search ranking, so everything above counts for them. ChatGPT, Perplexity, Claude and Copilot reward answer-shaped pages, so the site also has:
+
+- **Definition-first intros.** Every product page opens with "X is … built by Draveta Technologies in Jodhpur", which tells AI engines which company each product belongs to (`lede` in `src/data.js`).
+- **Questions people ask.** Real Q&A on the homepage, every product page and the Oswal case (`faq`, `HOME_FAQ` and `ERP_FAQ` in `src/data.js`). Each answer stands on its own, is mostly 30–60 words, and uses the product name rather than "it". The `FAQPage` schema is generated from the same arrays, so it always matches the visible text.
+- **Freshness.** A visible "Last updated" date, plus `dateModified` in the schema and sitemap (`UPDATED` in `src/data.js`). Bump it when the content changes, not on every deploy.
+- **Entity data.** `Organization` with partners and address, `makesOffer` for the four services, `SoftwareApplication` per product with `author`.
+- **`/llms.txt`.** Key facts, everything built in order, and every Q&A in plain text.
+- **AI crawlers allowed.** `robots.txt` allows everything, including GPTBot, PerplexityBot, ClaudeBot and Google-Extended.
+
+No prices are published, so there is no `/pricing.md`. AI buying agents skip products whose pricing they can't read; if the client publishes prices, add one.
+
+### Presence: where AI engines look (needs the owner)
+
+AI answers cite third-party pages far more than a company's own site. In rough order of value for a Jodhpur software company:
+
+1. **Google Business Profile** (feeds Gemini and AI Overviews for local queries).
+2. **IndiaMART and JustDial** listings, which AI engines often cite for Indian local-business queries.
+3. **Clutch and GoodFirms** profiles, cited for "best software company in …" queries.
+4. **LinkedIn company page.** Once it and the others exist, add their URLs as `sameAs` on the `Organization` in `src/seo.js`.
+5. **Client-site credits:** "Website by Draveta Technologies" on Vardhman Impex, Mayur Exports, Gen-C Media and Wearo.
+6. **Short YouTube demos** of T-Cal, HConcierge and Draveta PMS, which Google AI Overviews cite for how-to queries.
+
+### Monitoring (monthly, 20 minutes)
+
+Ask ChatGPT, Perplexity, Gemini and Google (AI Overview) each of these, and log whether Draveta is cited and who is:
+
+- software company in Jodhpur / custom software development Jodhpur
+- how to calculate timber CFT / timber CFT calculator
+- hotel PMS India with GST / hotel management software India
+- QR code room service app for hotels
+- ERP for furniture exporters India
+- difference between PO and JO in manufacturing
+- container loading barcode scanner app
+- bill reminder app for family
+
 ## To do off-site (needs the owner's accounts)
 
 1. **Google Search Console:** verify the domain, submit `/sitemap.xml`, watch Coverage and Performance.
