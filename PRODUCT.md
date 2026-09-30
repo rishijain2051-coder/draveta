@@ -21,7 +21,7 @@ Visitors are SME owners who buy on trust and by phone. Many arrive on a mid-rang
 
 ## Product Purpose
 
-Draveta Technologies is a Jodhpur software company that builds technology from scratch: its own industrial products for the timber and furniture-export trade, and custom software for clients. The website exists to say, loudly, that Draveta can build anything in tech from scratch, to prove it with the six products it already ships, and to get the visitor to call, WhatsApp, or ask for a demo.
+Draveta Technologies is a Jodhpur software company that builds technology from scratch: its own industrial products for the timber and furniture-export trade, and custom software for clients. The website exists to say, loudly, that Draveta can build anything in tech from scratch, to prove it with the nine products it already ships, the Oswal Handicrafts ERP and its client websites, and to get the visitor to call, WhatsApp, or ask for a demo.
 
 ## Positioning
 
@@ -47,7 +47,7 @@ The products cover the wood supply chain end to end:
 - **Sticker Maker**: printable barcodes, custom container labels, exportable shipping manifests.
 - **Sticker Scanner**: scan container barcodes on mobile to verify loaded warehouse inventory against expected manifests.
 
-All six are marked "Live". They have no public URLs or screenshots; product cards and pages explain and route to contact.
+All six timber products are marked "Live". They have no public URLs or screenshots; product cards and pages explain and route to contact.
 
 Hotels (confirmed 2026-09-30; facts from the private repos `Draveta-Hotel-PMS` and `HConcierge`):
 
@@ -74,7 +74,7 @@ Built for clients:
 
 ## Capabilities and Constraints
 
-- Site scope: home, one page per product (9, in three lines: Timber & export, Hotels, Everyday), the Oswal Handicrafts ERP case page (/work/oswal-erp), about, contact.
+- Site scope: home, one page per product (9, grouped as Timber & export, Hospitality and Everyday; the homepage timeline adds Business software and Now building, which have no pages), the Oswal Handicrafts ERP case page (/work/oswal-erp), about, contact.
 - Primary action: call / WhatsApp +91 98290 11726. Secondary: "Book a demo" form that composes a WhatsApp message to that number (no backend). Opening a live app is not possible (no URLs).
 - Location: Jodhpur, Rajasthan (city only, no street address).
 - English only.
@@ -98,7 +98,7 @@ Built for clients:
 ## Product Principles
 
 1. Speak the shop floor's language: timber, job work, PO/JO, containers, manifests. Not software jargon.
-2. Show how the products connect across the chain, not six unrelated cards.
+2. Show how the products connect across the chain, not a grid of unrelated cards.
 3. Make contacting a person effortless; a call or WhatsApp is the sale.
 4. Earn trust through specifics and restraint, not hype.
 5. Respect the visitor's phone and data: fast first, then impressive.

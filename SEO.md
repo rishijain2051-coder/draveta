@@ -36,10 +36,10 @@ There is no `<meta name="keywords">`, because Google and Bing ignore it. The tit
 
 ## Structured data
 
-- Every page: `Organization` (name, logo, phone, Jodhpur address, partners).
-- Home: `WebSite`.
-- Product pages: `SoftwareApplication` + `BreadcrumbList`. No prices or ratings, because none are published.
-- Oswal ERP case: `BreadcrumbList`.
+- Every page: `Organization` (name, logo, phone, Jodhpur address, partners, the four services as `makesOffer`) and `WebPage` (with `dateModified`). The 404 page has none and is `noindex`.
+- Home: `WebSite` + `FAQPage`.
+- Product pages: `SoftwareApplication` + `FAQPage` + `BreadcrumbList`. No prices or ratings, because none are published.
+- Oswal ERP case: `FAQPage` + `BreadcrumbList`.
 
 Validate after deploy at <https://search.google.com/test/rich-results>.
 
