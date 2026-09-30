@@ -58,6 +58,15 @@ Everyday (confirmed 2026-09-30; from the private repo `duedo`):
 
 - **DueDo** (formerly PRO-SYS): multi-user personal reminders for bills, birthdays and renewals, delivered by push notification, email, or both. Single-person or family accounts, with shared, assignable family lists. Installable as a web app.
 
+Build timeline (confirmed by the user 2026-09-30; the homepage shows products in this order and these groups):
+
+1. Timber & export: T-Cal → T-Job Sheet → T-Connect → T-Workflow → Sticker Maker & Scanner
+2. Business software: Hardware Maintain Software (hardware store ERP: inventory, purchase history, material issue slips, store logs; repo `HARDWARE`) → Full-fledged ERP (Oswal Handicrafts)
+3. Everyday: DueDo
+4. Hospitality: HConcierge → Cafe Management Application (no details known; name only) → Hotel PMS
+
+Client websites (confirmed 2026-09-30): Vardhman Impex (vardhman-impex.com), Wearo, Mayur Exports, Gen-C Media. Mention the names only; **only vardhman-impex.com may be previewed** (screenshot at `public/work/vardhman-impex.jpg`).
+
 Built for clients:
 
 - **Oswal Handicrafts ERP**: a modular ERP for Oswal Handicrafts, a furniture and hardware exporter in Jodhpur (from the private repo `oswal`). Three modules are live: Product Management (products, multi-method costing with CFT/SQFT/SQMT/RFT/WEIGHT/QTY, images), Operations (proformas, orders, production board, accounting) and Manforce (workers, muster roll, wages, advances, statutory dues). Finished Product & Sales (container planning) is planned. Open: the client has not yet confirmed that Oswal can be named publicly.

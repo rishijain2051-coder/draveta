@@ -14,6 +14,7 @@ export function Logo({ className = '' }) {
 }
 
 const to = (hash) => ({ pathname: '/', hash })
+const PAGE_GROUPS = GROUPS.filter((g) => inGroup(g.id).length)
 
 export function Nav() {
   const [open, setOpen] = useState(false)
@@ -42,7 +43,7 @@ export function Nav() {
         <div className="nav-drop">
           <Link to={to('#products')}>Products</Link>
           <div className="nav-panel">
-            {GROUPS.map((g) => (
+            {PAGE_GROUPS.map((g) => (
               <div key={g.id} className="nav-col">
                 <p className="mono">{g.name}</p>
                 {inGroup(g.id).map((p) => <Link key={p.slug} to={`/products/${p.slug}`}>{p.name}</Link>)}
@@ -69,7 +70,7 @@ export function Nav() {
           <li><Link to="/contact">Contact</Link></li>
         </ul>
         <div className="menu-products">
-          {GROUPS.map((g) => (
+          {PAGE_GROUPS.map((g) => (
             <div key={g.id}>
               <p className="mono">{g.name}</p>
               <ul>{inGroup(g.id).map((p) => <li key={p.slug}><Link to={`/products/${p.slug}`}>{p.name}</Link></li>)}</ul>

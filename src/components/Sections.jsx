@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { PRODUCTS, GROUPS, inGroup, SERVICES, PHONE, TEL, wa, CITY } from '../data.js'
+import { PRODUCTS, TIMELINE, WEBSITES, inGroup, SERVICES, PHONE, TEL, wa, CITY } from '../data.js'
 import { Costing } from './Demos.jsx'
 import Icon from './Icon.jsx'
 
@@ -55,18 +55,26 @@ export function Chain({ items = inGroup('timber'), current, compact = false }) {
   const ref = useDrawn()
   return (
     <ol className={`chain ${compact ? 'chain-compact' : ''}`} ref={ref} style={{ '--n': items.length }}>
-      {items.map((p, i) => (
-        <li key={p.slug} className={`${i % 2 ? 'dn' : 'up'} ${current === p.slug ? 'is-here' : ''}`} style={{ '--i': i }}>
-          <Link to={`/products/${p.slug}`} aria-current={current === p.slug ? 'page' : undefined}>
+      {items.map((p, i) => {
+        const to = p.to ?? (p.slug && `/products/${p.slug}`)
+        const inner = (
+          <>
             <span className="chain-body">
               <b className="chain-name">{p.name}</b>
               {!compact && <span className="chain-line">{p.line}</span>}
-              {!compact && <span className="chain-go">See it live <Icon name="arrow" size={16} /></span>}
+              {!compact && to && <span className="chain-go">{p.go ?? 'See it live'} <Icon name="arrow" size={16} /></span>}
             </span>
             <span className="chain-stage mono">{p.stage}</span>
-          </Link>
-        </li>
-      ))}
+          </>
+        )
+        return (
+          <li key={p.name} className={`${i % 2 ? 'dn' : 'up'} ${current && current === p.slug ? 'is-here' : ''} ${to ? '' : 'is-plain'}`} style={{ '--i': i }}>
+            {to
+              ? <Link className="chain-a" to={to} aria-current={current && current === p.slug ? 'page' : undefined}>{inner}</Link>
+              : <div className="chain-a">{inner}</div>}
+          </li>
+        )
+      })}
     </ol>
   )
 }
@@ -78,21 +86,48 @@ function Line({ g }) {
         <h3>{g.name}</h3>
         <p>{g.note}</p>
       </div>
-      <Chain items={inGroup(g.id)} />
+      <Chain items={g.items} />
     </div>
   )
 }
 
 export function Products() {
+  const [timber, business, everyday, hotel] = TIMELINE
   return (
     <section id="products" className="sec sec-chain" aria-labelledby="products-h">
       <div className="sec-head">
-        <h2 id="products-h">Nine products. Three industries. One team.</h2>
-        <p>We started with the trade around us and built it end to end, from buying the log to loading the container. Then hotels. Then the reminders every family forgets. Every one of them was written from the first line.</p>
+        <h2 id="products-h">From a timber calculator to a hotel PMS.</h2>
+        <p>Everything we have built, in the order we built it. We started with the trade around us, then whole systems for stores and factories, then everyday life, then hotels. Every one of them written from the first line.</p>
       </div>
-      <Line g={GROUPS[0]} />
-      <div className="lines-row">{GROUPS.slice(1).map((g) => <Line key={g.id} g={g} />)}</div>
+      <Line g={timber} />
+      <div className="lines-row"><Line g={business} /><Line g={everyday} /></div>
+      <div className="lines-row lines-full"><Line g={hotel} /></div>
       <p className="chain-coda">Same team, same standard, for whatever you need built next.</p>
+    </section>
+  )
+}
+
+export function Websites() {
+  const [preview, ...rest] = WEBSITES
+  return (
+    <section className="sec sec-sites" aria-labelledby="sites-h">
+      <div className="sec-head">
+        <h2 id="sites-h">And the websites.</h2>
+        <p>Company and trade-catalogue sites for the businesses we work with, built the same way as our software.</p>
+      </div>
+      <div className="sites">
+        <figure className="site-preview">
+          <a href="https://vardhman-impex.com" target="_blank" rel="noopener noreferrer" className="site-frame" aria-label={`${preview} website, opens in a new tab`}>
+            <span className="site-bar" aria-hidden="true"><i /><i /><i /><span className="mono">vardhman-impex.com</span></span>
+            <img src="/work/vardhman-impex.jpg" alt={`The ${preview} homepage`} width="1200" height="750" loading="lazy" decoding="async" />
+          </a>
+          <figcaption><b>{preview}</b> Furniture manufacturer and exporter, Jodhpur <a href="https://vardhman-impex.com" target="_blank" rel="noopener noreferrer">Visit the site <Icon name="arrow" size={16} /></a></figcaption>
+        </figure>
+        <div className="sites-more">
+          <p className="mono">Also built for</p>
+          <ul>{rest.map((n) => <li key={n}>{n}</li>)}</ul>
+        </div>
+      </div>
     </section>
   )
 }
