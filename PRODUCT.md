@@ -91,7 +91,7 @@ Built for clients:
 ## Evidence on Hand
 
 - Claims the client wants kept as-is: "15 years combined experience", "Enterprise grade", "24/7 support", "Military-standard security protocols and compliance frameworks", "Developed by software engineers with great industrial experience".
-- People: Rishi Jain, Partner; Naman Dhariwal, Partner (names and roles only, no photos).
+- People: Naman Dhariwal, Partner; Rishi Jain, Partner (names and roles only, no photos).
 - Phone: +91 98290 11726 (the only number to publish).
 - No client logos, testimonials, usage numbers, screenshots, or pricing. Do not invent any.
 

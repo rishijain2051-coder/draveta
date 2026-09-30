@@ -178,7 +178,7 @@ const SPEC = [
   ['Grade', 'Enterprise', 'big'],
   ['Engineering', 'Developed by software engineers with deep industrial experience', 'w2'],
   ['Security', 'Military-standard security protocols and compliance frameworks', 'w2'],
-  ['Partners', 'Rishi Jain · Naman Dhariwal', 'w2'],
+  ['Partners', 'Naman Dhariwal · Rishi Jain', 'w2'],
 ]
 export function TitleBlock() {
   const ref = useDrawn()

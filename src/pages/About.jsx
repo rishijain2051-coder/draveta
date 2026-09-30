@@ -26,8 +26,8 @@ export default function About() {
           <p>When you call Draveta, you talk to the people who build it.</p>
         </div>
         <ul className="people">
-          <li><b>Rishi Jain</b><span className="mono">Partner</span></li>
           <li><b>Naman Dhariwal</b><span className="mono">Partner</span></li>
+          <li><b>Rishi Jain</b><span className="mono">Partner</span></li>
         </ul>
       </section>
 
