@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { PRODUCTS, TIMELINE, WEBSITES, UPDATED, inGroup, SERVICES, PHONE, TEL, wa, CITY } from '../data.js'
+import { useEffect, useRef } from 'react'
+import { Link } from 'react-router'
+import { PRODUCTS, TIMELINE, WEBSITES, UPDATED, SERVICES, PHONE, TEL, wa, CITY } from '../data.js'
 import { Costing } from './Demos.jsx'
 import Icon from './Icon.jsx'
 
@@ -9,7 +9,6 @@ export function useDrawn() {
   const ref = useRef(null)
   useEffect(() => {
     const el = ref.current
-    if (!('IntersectionObserver' in window)) return el.classList.add('is-drawn')
     const io = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { el.classList.add('is-drawn'); io.disconnect() }
     }, { rootMargin: '0px 0px -15% 0px' })
@@ -51,7 +50,7 @@ export function Services() {
   )
 }
 
-export function Chain({ items = inGroup('timber'), current, compact = false }) {
+export function Chain({ items, current, compact = false }) {
   const ref = useDrawn()
   return (
     <ol className={`chain ${compact ? 'chain-compact' : ''}`} ref={ref} style={{ '--n': items.length }}>
@@ -140,10 +139,9 @@ const MODULES = [
   ['Finished Product & Sales', 'Container planning', false],
 ]
 export function Work({ page = false }) {
-  const ref = useDrawn()
   const Tag = page ? 'h1' : 'h2'
   return (
-    <section className={`sec sec-work ${page ? 'sec-work-page' : ''}`} ref={ref} aria-labelledby="work-h">
+    <section className={`sec sec-work ${page ? 'sec-work-page' : ''}`} aria-labelledby="work-h">
       <div className="work-copy">
         <Tag id="work-h" className={page ? 'ph-h1 ink-in' : undefined}>A full ERP for Oswal Handicrafts.</Tag>
         <p className="work-lede">Oswal Handicrafts is a furniture and hardware exporter in Jodhpur. We built them a modular ERP from scratch, where every module feeds the next.</p>
@@ -181,9 +179,8 @@ const SPEC = [
   ['Partners', 'Naman Dhariwal · Rishi Jain', 'w2'],
 ]
 export function TitleBlock() {
-  const ref = useDrawn()
   return (
-    <section className="sec sec-spec" ref={ref} aria-labelledby="spec-h">
+    <section className="sec sec-spec" aria-labelledby="spec-h">
       <div className="sec-head">
         <h2 id="spec-h">Signed off by engineers who know the floor.</h2>
         <p>Every drawing carries a title block: who made it, where, and to what standard. Here is ours.</p>
@@ -203,35 +200,30 @@ export function TitleBlock() {
 const NEEDS = [...PRODUCTS.map((p) => p.name), 'A custom web app', 'A mobile app', 'A website', 'Automation or integration', 'Not sure yet']
 
 export function DemoForm({ preset = '' }) {
-  const [f, setF] = useState({ name: '', company: '', need: preset || 'Not sure yet', note: '' })
-  const [err, setErr] = useState('')
-  const set = (k) => (e) => setF({ ...f, [k]: e.target.value })
   const submit = (e) => {
     e.preventDefault()
-    if (!f.name.trim()) return setErr('Add your name so we know who to call back.')
-    setErr('')
+    const f = Object.fromEntries(new FormData(e.currentTarget))
     const text = [`Hi Draveta, I'd like a demo.`, `Name: ${f.name.trim()}`, f.company.trim() && `Company: ${f.company.trim()}`, `Interested in: ${f.need}`, f.note.trim() && `Details: ${f.note.trim()}`].filter(Boolean).join('\n')
     window.open(wa(text), '_blank', 'noopener')
   }
   return (
-    <form className="form" onSubmit={submit} noValidate>
+    <form className="form" onSubmit={submit}>
       <label>
         <span>Your name</span>
-        <input value={f.name} onChange={set('name')} autoComplete="name" aria-invalid={!!err} aria-describedby={err ? 'form-err' : undefined} />
+        <input name="name" required autoComplete="name" />
       </label>
       <label>
         <span>Company <em>optional</em></span>
-        <input value={f.company} onChange={set('company')} autoComplete="organization" />
+        <input name="company" autoComplete="organization" />
       </label>
       <label className="form-wide">
         <span>What do you need?</span>
-        <select value={f.need} onChange={set('need')}>{NEEDS.map((n) => <option key={n}>{n}</option>)}</select>
+        <select name="need" defaultValue={preset || 'Not sure yet'}>{NEEDS.map((n) => <option key={n}>{n}</option>)}</select>
       </label>
       <label className="form-wide">
         <span>Tell us a little <em>optional</em></span>
-        <textarea rows="3" value={f.note} onChange={set('note')} placeholder="What should it do? Who will use it?" />
+        <textarea name="note" rows="3" placeholder="What should it do? Who will use it?" />
       </label>
-      {err && <p id="form-err" className="form-err" role="alert">{err}</p>}
       <button className="btn btn-ultra form-wide" type="submit"><Icon name="whatsapp" /> Send on WhatsApp</button>
       <p className="form-note form-wide">Opens WhatsApp with your message ready to send to {PHONE}.</p>
     </form>
@@ -252,10 +244,8 @@ export function Close({ preset, title = 'Tell us what to build.' }) {
   )
 }
 
-// Formatted by hand so the build (Node) and the browser print exactly the same text.
-const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-const [uy, um, ud] = UPDATED.split('-').map(Number)
-const updated = `${ud} ${MONTHS[um - 1]} ${uy}`
+// UTC, so the build and every visitor's browser print the same day.
+const updated = new Date(UPDATED).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
 
 export function Faq({ items, title = 'Questions people ask' }) {
   return (

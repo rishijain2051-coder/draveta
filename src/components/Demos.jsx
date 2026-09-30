@@ -3,8 +3,8 @@ import Icon from './Icon.jsx'
 
 // Illustrative demos with sample data. They show the idea of each product, not its exact UI.
 
-const num = (s) => (Number.isFinite(parseFloat(s)) && parseFloat(s) >= 0 ? parseFloat(s) : 0)
-const fmt = (n, d = 2) => n.toLocaleString('en-IN', { minimumFractionDigits: d, maximumFractionDigits: d })
+const num = (s) => parseFloat(s) || 0 // inputs are already stripped to digits and dots
+const fmt = (n) => n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
 /* ── T-Cal: sawn timber volume in CFT = L(ft) × W(in) × T(in) ÷ 144 × pieces ── */
 export function TCal() {
@@ -116,29 +116,29 @@ export function JobSheet() {
 }
 
 /* ── T-Workflow: one order, assigned and documented ── */
+const STEPS = [
+  ['Assign supplier', 'Supplier A · timber'],
+  ['Assign job manager', 'Job manager · Team B'],
+  ['Generate PO', 'PO-2291-01'],
+  ['Generate JO', 'JO-2291-01'],
+]
 export function Workflow() {
-  const [s, setS] = useState({ sup: false, jm: false, po: false, jo: false })
-  const steps = [
-    ['sup', 'Assign supplier', 'Supplier A · timber'],
-    ['jm', 'Assign job manager', 'Job manager · Team B'],
-    ['po', 'Generate PO', 'PO-2291-01'],
-    ['jo', 'Generate JO', 'JO-2291-01'],
-  ]
-  const next = steps.find(([k]) => !s[k])
+  const [n, setN] = useState(0) // steps done, always in order
+  const next = STEPS[n]
   return (
     <div className="ui ui-flow">
       <header className="ui-bar"><b>T-Workflow</b><span>ORD-2291 · 480 pcs</span></header>
       <ol className="ui-steps">
-        {steps.map(([k, label, doc]) => (
-          <li key={k} className={s[k] ? 'is-ok' : next?.[0] === k ? 'is-next' : ''}>
-            <span className="ui-mark">{s[k] && <Icon name="check" size={14} />}</span>
+        {STEPS.map(([label, doc], i) => (
+          <li key={label} className={i < n ? 'is-ok' : i === n ? 'is-next' : ''}>
+            <span className="ui-mark">{i < n && <Icon name="check" size={14} />}</span>
             <span>{label}</span>
-            <em className="mono">{s[k] ? doc : '—'}</em>
+            <em className="mono">{i < n ? doc : '—'}</em>
           </li>
         ))}
       </ol>
-      <button type="button" className="ui-btn" onClick={() => setS(next ? { ...s, [next[0]]: true } : { sup: false, jm: false, po: false, jo: false })}>
-        {next ? next[1] : 'Start a new order'}
+      <button type="button" className="ui-btn" onClick={() => setN(next ? n + 1 : 0)}>
+        {next ? next[0] : 'Start a new order'}
       </button>
     </div>
   )
@@ -361,7 +361,7 @@ export function Costing() {
             <tr key={name}>
               <td>{name}<small className="mono">{how}</small></td>
               <td className="mono">{m}</td>
-              <td className="mono">{fmt(q, 2)} {unit}<small>@ {money(rate)}</small></td>
+              <td className="mono">{fmt(q)} {unit}<small>@ {money(rate)}</small></td>
               <td className="mono">{money(q * rate)}</td>
             </tr>
           ))}

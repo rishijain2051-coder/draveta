@@ -1,4 +1,4 @@
-import { MARK } from '../brand.js'
+import { MARK, WORD, WORD_BOX } from '../brand.js'
 
 // Real construction geometry of the Draveta mark (258-unit square):
 // four loops of R 67.46 on a 123.1 pitch, a Ø 71.4 centre ring, everything on 45°.
@@ -8,10 +8,18 @@ const t = (s0, du) => ({ '--s0': s0, '--du': du })
 
 const Line = ({ d, s0, du, c = '' }) => <path className={`cl ${c}`} d={d} pathLength="1" style={t(s0, du)} />
 
-export function Mark({ className = '', ...rest }) {
+export function Mark({ className }) {
   return (
-    <svg className={className} viewBox="0 0 258 258" aria-hidden="true" {...rest}>
+    <svg className={className} viewBox="0 0 258 258" aria-hidden="true">
       {MARK.map((p, i) => <path key={i} transform={p.t} d={p.d} />)}
+    </svg>
+  )
+}
+
+export function Word({ className }) {
+  return (
+    <svg className={className} viewBox={`-4 -4 ${WORD_BOX[0] + 8} ${WORD_BOX[1] + 8}`} aria-hidden="true">
+      {WORD.map((p, i) => <path key={i} transform={p.t} d={p.d} />)}
     </svg>
   )
 }

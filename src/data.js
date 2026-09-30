@@ -11,7 +11,6 @@ export const PRODUCTS = [
     name: 'T-Cal',
     stage: 'Estimate',
     line: 'Precision timber calculator for estimating, optimising and buying.',
-    desc: 'Precision Timber Calculator for streamlined estimation, optimization, and procurement across the wood supply chain.',
     lede: "T-Cal is a precision timber calculator built by Draveta Technologies in Jodhpur. It works out timber volume in CFT from sizes and piece counts, so traders, sawmills and furniture makers can estimate, compare and buy with numbers everyone on the deal can check.",
     faq: [["How is timber volume in CFT calculated?", "For sawn timber, cubic feet (CFT) is length in feet × width in inches × thickness in inches ÷ 144, multiplied by the number of pieces. For example, 40 pieces of 8 ft × 6 in × 2 in timber come to 26.67 CFT. T-Cal does this for every size and piece count."], ["Who is T-Cal for?", "T-Cal is built for timber traders, depots, sawmills and furniture makers who need to estimate timber volume before buying, compare sizes and quantities, and agree on numbers that everyone on the deal can check."]],
     points: [
@@ -26,7 +25,6 @@ export const PRODUCTS = [
     name: 'T-Job Sheet',
     stage: 'Produce',
     line: 'Digital job sheets for every task on the production floor.',
-    desc: 'Digital job sheet management system for tracking production tasks, assigning work to teams, and monitoring completion status.',
     lede: "T-Job Sheet is digital job sheet software for production floors, built by Draveta Technologies in Jodhpur. It records every production task, assigns the work to a team and shows its completion status as it happens, so paper job sheets stop getting lost.",
     faq: [["What is a job sheet in production?", "A job sheet records one production task: the job number, the item and quantity, the team doing it, the stage it has reached and its status. T-Job Sheet keeps job sheets digitally, so every task can be searched, assigned and tracked instead of living on paper."], ["Can T-Job Sheet assign work to teams?", "Yes. Each production task in T-Job Sheet is assigned to a team, and its completion status updates as the work moves, so a manager can see what is done, what is in progress and what is stuck."]],
     points: [
@@ -41,7 +39,6 @@ export const PRODUCTS = [
     name: 'T-Connect',
     stage: 'Trade',
     line: 'The marketplace where timber sellers and buyers meet.',
-    desc: 'A marketplace connecting timber sellers and buyers, enabling seamless trade, price discovery, and business networking across the industry.',
     lede: "T-Connect is a timber marketplace built by Draveta Technologies in Jodhpur. It connects timber sellers and buyers in one place for trade, price discovery and business networking across the wood industry.",
     faq: [["How does T-Connect help with timber prices?", "T-Connect brings timber sellers and buyers onto one marketplace, so you can see what the market is asking before you commit to a lot. Price discovery sits alongside trade and business networking across the wood industry."], ["Who is T-Connect for?", "T-Connect is for anyone who buys or sells timber: traders, depots, sawmills and the manufacturers they supply."]],
     points: [
@@ -56,7 +53,6 @@ export const PRODUCTS = [
     name: 'T-Workflow',
     stage: 'Order',
     line: 'Order and production workflow, from order to PO and JO.',
-    desc: 'End-to-end order management and production workflow system for tracking orders, assigning suppliers and job managers, and generating PO/JO documents.',
     lede: "T-Workflow is order management and production workflow software built by Draveta Technologies in Jodhpur. It tracks every order end to end, assigns suppliers and job managers, and generates purchase order (PO) and job order (JO) documents.",
     faq: [["What is the difference between a PO and a JO?", "A purchase order (PO) goes to a supplier to buy materials. A job order (JO) is issued for work to be done, usually to a job manager or job worker. T-Workflow generates both from the order itself, so nothing is retyped."], ["What does T-Workflow track?", "T-Workflow tracks every order from start to finish, with the supplier and the job manager assigned to it and the PO and JO documents generated for it."]],
     points: [
@@ -71,7 +67,6 @@ export const PRODUCTS = [
     name: 'Sticker Maker',
     stage: 'Label',
     line: 'Barcodes, container labels and shipping manifests, ready to print.',
-    desc: 'Generate printable barcodes, custom container labels, and export detailed shipping manifests.',
     lede: "Sticker Maker is label software for exporters, built by Draveta Technologies in Jodhpur. It generates printable barcodes and custom container labels, and exports a detailed shipping manifest for every container.",
     faq: [["What goes on an export carton label?", "An export carton label usually carries the item, the order or PO number, the carton number (for example 012 of 048), gross and net weight, a barcode, and the country of origin, such as Made in India. Sticker Maker lays out custom labels the way your buyer asks for them."], ["Can Sticker Maker export a shipping manifest?", "Yes. Sticker Maker exports a detailed shipping manifest for each container alongside the printable barcodes and labels, and Sticker Scanner can then check the loaded container against it."]],
     points: [
@@ -86,7 +81,6 @@ export const PRODUCTS = [
     name: 'Sticker Scanner',
     stage: 'Load',
     line: 'Scan every carton on a phone and check the container against its manifest.',
-    desc: 'Scan container barcodes on mobile devices to verify loaded warehouse inventory against expected manifests.',
     lede: "Sticker Scanner is a mobile barcode scanner for container loading, built by Draveta Technologies in Jodhpur. Staff scan each carton as it is loaded and the app checks it against the expected manifest, so nothing is missed before the container is sealed.",
     faq: [["How do you check a container load against the manifest?", "With Sticker Scanner, staff scan each carton’s barcode on a mobile phone as it is loaded. Every scan is checked against the expected manifest, so the app shows what has been loaded and what is still missing before the container is sealed."], ["Does Sticker Scanner need special hardware?", "No. Sticker Scanner runs on mobile devices, so the phone in your pocket does the scanning."]],
     points: [
@@ -101,7 +95,6 @@ export const PRODUCTS = [
     name: 'DueDo',
     stage: 'Reminders',
     line: 'Bills, birthdays, renewals. Just missed it? Never again.',
-    desc: 'A multi-user personal reminder app. Reminders are time-based and reach you on your lock screen by push notification, by email, or both, whichever each person chooses.',
     lede: "DueDo is a reminder app for bills, birthdays and renewals, built by Draveta Technologies in Jodhpur. Reminders arrive on time by push notification, by email or both, for one person or a whole family sharing a list.",
     faq: [["How does DueDo send reminders?", "DueDo sends each reminder at its time by push notification to your phone’s lock screen, by email, or both. Each person chooses how they want to be reminded."], ["Can a family share reminders in DueDo?", "Yes. A family account adds a shared reminder list that every member can see, while each person keeps their own private list, email, PIN and devices. Family reminders can be assigned to a member."]],
     points: [
@@ -116,7 +109,6 @@ export const PRODUCTS = [
     name: 'HConcierge',
     stage: 'Guest requests',
     line: 'Guests scan the QR in their room and ask for anything. No app, no login.',
-    desc: 'In-room guest requests for hotels, built to take the phone out of the loop between a hotel room and reception. Room service, towels, a massage, a wake-up call, the wifi password, or a message to the front desk.',
     lede: "HConcierge is an in-room guest request system for hotels, built by Draveta Technologies in Jodhpur. Guests scan the QR card in their room to order room service, ask for towels, book a wake-up call or message the front desk, with no app to install.",
     faq: [["Do hotel guests need an app for HConcierge?", "No. Guests scan the QR card in their room and that room’s page opens in the phone’s browser. A short code from the front desk keeps it private to the current stay, and there is nothing to install."], ["What happens to a guest request in HConcierge?", "Each request goes to the team that actually handles it, such as housekeeping or the kitchen, is timed against a target, and is escalated if it is forgotten."], ["Does HConcierge work with a hotel PMS?", "HConcierge is the guest-facing module of Draveta PMS, so the itemised bill a guest reads on their phone is the same one the front desk sees."]],
     points: [
@@ -131,7 +123,6 @@ export const PRODUCTS = [
     name: 'Draveta PMS',
     stage: 'Run the hotel',
     line: 'End-to-end hotel management, from reservation to night audit.',
-    desc: 'Reservations, front desk, housekeeping, maintenance, billing, F&B, stores, people, banquets and CRM, for a single property or a group. Built for India first, with GST worked out on what a room actually sold for.',
     lede: "Draveta PMS is hotel management software built for India by Draveta Technologies in Jodhpur. It runs reservations, front desk, housekeeping, maintenance, billing with GST, F&B, stores, people, banquets and CRM for a single property or a group.",
     faq: [["How does Draveta PMS handle GST?", "Draveta PMS applies GST on what a room actually sold for, chooses CGST and SGST or IGST by place of supply, puts HSN/SAC on every line, keeps a gapless invoice series for each financial year, and handles Form C for foreign nationals."], ["Can Draveta PMS run more than one hotel?", "Yes. Draveta PMS runs a single property or a group, and each of its automatic rules can be switched off per property, because a twelve-room guest house does not need the same setup as a two-hundred-room resort."], ["What does “the software notices” mean in Draveta PMS?", "Routine follow-ups happen on their own. When a guest checks out, for example, the clean appears on the housekeeping board, marked urgent if someone arrives into that room today and assigned to whoever has the lightest load."]],
     points: [
@@ -167,11 +158,7 @@ const TIMELINE_ITEMS = {
     { name: 'Tally Invoice Bridge', stage: 'In progress', line: 'Upload a bill, see exactly what it will post to Tally, debit by debit, and post it in one click. Runs on your own computer; no invoice leaves it.' },
     { name: 'Assurance Console', stage: 'In progress', line: 'GST, bank and party reconciliation that runs offline, and an export register that keeps every invoice’s papers together until the eBRC is done.' }],
 }
-const resolve = (i) => {
-  if (typeof i !== 'string') return i
-  const p = product(i)
-  return { slug: p.slug, name: p.name, stage: p.stage, line: p.line, to: `/products/${p.slug}` }
-}
+const resolve = (i) => (typeof i === 'string' ? { ...product(i), to: `/products/${i}` } : i)
 export const TIMELINE = GROUPS.map((g) => ({ ...g, items: TIMELINE_ITEMS[g.id].map(resolve) }))
 
 // Client websites. Only Vardhman Impex may be previewed.

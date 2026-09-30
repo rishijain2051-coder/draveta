@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { MARK, WORD, WORD_BOX } from '../brand.js'
+import { MARK } from '../brand.js'
+import { Word } from './Knot.jsx'
 
 // Pen plotter: the mark is plotted in one stroke on a blueprint sheet, a crosshair
 // chases the pen, then the sheet splits along the mark's own 45° diagonal.
-// Hero construction starts when the split begins (event 'drv:loaded').
+// The hero starts constructing when the split begins (html[data-loaded], in CSS).
 
 function Sheet({ pen }) {
   return (
@@ -11,9 +12,7 @@ function Sheet({ pen }) {
       <svg className="ld-mark" viewBox="0 0 258 258" aria-hidden="true">
         {MARK.map((p, i) => <path key={i} ref={i === 0 ? pen : undefined} transform={p.t} d={p.d} pathLength="1" />)}
       </svg>
-      <svg className="ld-word" viewBox={`-4 -4 ${WORD_BOX[0] + 8} ${WORD_BOX[1] + 8}`} aria-hidden="true">
-        {WORD.map((p, i) => <path key={i} transform={p.t} d={p.d} />)}
-      </svg>
+      <Word className="ld-word" />
     </div>
   )
 }
@@ -27,7 +26,6 @@ function Plotter() {
 
   useEffect(() => {
     document.getElementById('boot')?.remove()
-    document.documentElement.classList.add('is-loading')
     const el = root.current
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
     const p = pen.current
@@ -43,9 +41,7 @@ function Plotter() {
       setPhase('filled')
       timers.push(setTimeout(() => {
         setPhase('split')
-        document.documentElement.classList.remove('is-loading')
         document.documentElement.dataset.loaded = '1'
-        dispatchEvent(new Event('drv:loaded'))
       }, reduce ? 0 : 520))
       timers.push(setTimeout(() => setPhase('gone'), reduce ? 350 : 1500))
     }

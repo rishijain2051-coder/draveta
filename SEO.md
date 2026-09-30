@@ -1,6 +1,6 @@
 # SEO
 
-Source of truth for titles, descriptions, keywords and structured data: `src/seo.js`. This file explains it.
+Source of truth for titles, descriptions and structured data: `src/seo.js`. This file explains it and holds the keyword map.
 
 ## How pages reach search engines
 
@@ -32,7 +32,7 @@ One primary intent per page, so pages don't compete with each other.
 
 Keywords are not verified against search-volume data (no keyword tool is connected). With Search Console running for a few weeks, check which queries actually bring impressions and adjust titles in `src/seo.js`.
 
-`<meta name="keywords">` is emitted from the same map. Google ignores it; the titles, descriptions, headings and copy carry the keywords that count.
+There is no `<meta name="keywords">`, because Google and Bing ignore it. The titles, descriptions, headings and copy carry the keywords that count.
 
 ## Structured data
 

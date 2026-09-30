@@ -1,19 +1,18 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
-import { MARK, WORD, WORD_BOX } from '../brand.js'
+import { Link, NavLink, useLocation } from 'react-router'
 import { PRODUCTS, GROUPS, inGroup, PHONE, TEL, wa, CITY } from '../data.js'
 import Icon from './Icon.jsx'
+import { Mark, Word } from './Knot.jsx'
 
-export function Logo({ className = '' }) {
+function Logo({ className = '' }) {
   return (
     <span className={`logo ${className}`}>
-      <svg className="logo-mark" viewBox="0 0 258 258" aria-hidden="true">{MARK.map((p, i) => <path key={i} transform={p.t} d={p.d} />)}</svg>
-      <svg className="logo-word" viewBox={`-4 -4 ${WORD_BOX[0] + 8} ${WORD_BOX[1] + 8}`} aria-hidden="true">{WORD.map((p, i) => <path key={i} transform={p.t} d={p.d} />)}</svg>
+      <Mark className="logo-mark" />
+      <Word className="logo-word" />
     </span>
   )
 }
 
-const to = (hash) => ({ pathname: '/', hash })
 const PAGE_GROUPS = GROUPS.filter((g) => inGroup(g.id).length)
 
 export function Nav() {
@@ -29,7 +28,6 @@ export function Nav() {
     return () => removeEventListener('scroll', on)
   }, [])
   useEffect(() => {
-    document.documentElement.classList.toggle('menu-open', open)
     if (!open) return
     const esc = (e) => e.key === 'Escape' && setOpen(false)
     addEventListener('keydown', esc)
@@ -41,7 +39,7 @@ export function Nav() {
       <Link to="/" className="nav-home" aria-label="Draveta Technologies, home"><Logo /></Link>
       <nav className="nav-links" aria-label="Main">
         <div className="nav-drop">
-          <Link to={to('#products')}>Products</Link>
+          <Link to="/#products">Products</Link>
           <div className="nav-panel">
             {PAGE_GROUPS.map((g) => (
               <div key={g.id} className="nav-col">
@@ -52,7 +50,7 @@ export function Nav() {
           </div>
         </div>
         <NavLink to="/work/oswal-erp">Work</NavLink>
-        <Link to={to('#services')}>Services</Link>
+        <Link to="/#services">Services</Link>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </nav>
@@ -63,9 +61,9 @@ export function Nav() {
 
       <div id="menu" className="menu" hidden={!open}>
         <ul className="menu-main">
-          <li><Link to={to('#products')}>Products</Link></li>
+          <li><Link to="/#products">Products</Link></li>
           <li><Link to="/work/oswal-erp">Work</Link></li>
-          <li><Link to={to('#services')}>Services</Link></li>
+          <li><Link to="/#services">Services</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>
@@ -102,7 +100,7 @@ export function Footer() {
           <p className="foot-h mono">Company</p>
           <ul>
             <li><Link to="/work/oswal-erp">Oswal Handicrafts ERP</Link></li>
-            <li><Link to={to('#services')}>Services</Link></li>
+            <li><Link to="/#services">Services</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </ul>

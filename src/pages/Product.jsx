@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router'
 import { PRODUCTS, GROUPS, inGroup, product, TEL, PHONE, wa } from '../data.js'
 import { DEMOS } from '../components/Demos.jsx'
 import { Chain, Close, Faq, useDrawn } from '../components/Sections.jsx'
@@ -23,7 +23,7 @@ function ProductPage({ p }) {
         <div className="ph-copy">
           <h1 className="ph-h1 ink-in">{p.name}</h1>
           <p className="ph-lede">{p.lede}</p>
-          <p className="ph-live mono"><span className="dot" /> Live · {GROUPS.find((g) => g.id === p.group).name} · <Link to={{ pathname: '/', hash: '#products' }}>All products</Link></p>
+          <p className="ph-live mono"><span className="dot" /> Live · {GROUPS.find((g) => g.id === p.group).name} · <Link to="/#products">All products</Link></p>
           <div className="hero-cta">
             <a className="btn btn-ultra" href={wa(`Hi Draveta, I'd like a demo of ${p.name}.`)} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" /> Book a {p.name} demo</a>
             <a className="btn btn-line" href={TEL}><Icon name="phone" /> {PHONE}</a>

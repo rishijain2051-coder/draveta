@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router'
 import { Nav, Footer } from './components/Shell.jsx'
 import Loader from './components/Loader.jsx'
 import Home from './pages/Home.jsx'
