@@ -1,5 +1,5 @@
 import Hero from '../components/Hero.jsx'
-import { Services, Products, TitleBlock, Close } from '../components/Sections.jsx'
+import { Services, Products, Work, TitleBlock, Close } from '../components/Sections.jsx'
 import { useTitle } from '../title.js'
 
 export default function Home() {
@@ -9,6 +9,7 @@ export default function Home() {
       <Hero />
       <Services />
       <Products />
+      <Work />
       <TitleBlock />
       <Close />
     </>

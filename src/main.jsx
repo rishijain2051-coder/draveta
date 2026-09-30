@@ -13,6 +13,7 @@ import Product from './pages/Product.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
+import Work from './pages/Work.jsx'
 
 function ScrollTo() {
   const { pathname, hash } = useLocation()
@@ -36,6 +37,7 @@ createRoot(document.getElementById('root')).render(
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products/:slug" element={<Product />} />
+          <Route path="/work/oswal-erp" element={<Work />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

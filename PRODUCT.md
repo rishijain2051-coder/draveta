@@ -49,9 +49,22 @@ The products cover the wood supply chain end to end:
 
 All six are marked "Live". They have no public URLs or screenshots; product cards and pages explain and route to contact.
 
+Hotels (confirmed 2026-09-30; facts from the private repos `Draveta-Hotel-PMS` and `HConcierge`):
+
+- **Draveta PMS**: end-to-end hotel management (reservations, front desk, housekeeping, maintenance, billing, F&B, stores, people, banquets, CRM) for one property or a group. Built for India first: GST on what a room actually sold for, CGST/SGST vs IGST by place of supply, HSN/SAC per line, gapless invoice series per financial year, Form C for foreign nationals. Core idea: "the software notices, so the staff do not have to" (e.g. check-out automatically puts the clean on the housekeeping board). A live demo exists; credentials are given on request, so the site does not link it.
+- **HConcierge**: in-room guest requests. The guest scans the room's QR card (no app, no login) to order room service, ask for towels, book a massage or wake-up call, read the wifi password, or message the front desk. Requests are routed to the right team, timed against a target and escalated if forgotten. It is the PMS's guest-facing module.
+
+Everyday (confirmed 2026-09-30; from the private repo `duedo`):
+
+- **DueDo** (formerly PRO-SYS): multi-user personal reminders for bills, birthdays and renewals, delivered by push notification, email, or both. Single-person or family accounts, with shared, assignable family lists. Installable as a web app.
+
+Built for clients:
+
+- **Oswal Handicrafts ERP**: a modular ERP for Oswal Handicrafts, a furniture and hardware exporter in Jodhpur (from the private repo `oswal`). Three modules are live: Product Management (products, multi-method costing with CFT/SQFT/SQMT/RFT/WEIGHT/QTY, images), Operations (proformas, orders, production board, accounting) and Manforce (workers, muster roll, wages, advances, statutory dues). Finished Product & Sales (container planning) is planned. Open: the client has not yet confirmed that Oswal can be named publicly.
+
 ## Capabilities and Constraints
 
-- Site scope: home, one page per product (6), about, contact.
+- Site scope: home, one page per product (9, in three lines: Timber & export, Hotels, Everyday), the Oswal Handicrafts ERP case page (/work/oswal-erp), about, contact.
 - Primary action: call / WhatsApp +91 98290 11726. Secondary: "Book a demo" form that composes a WhatsApp message to that number (no backend). Opening a live app is not possible (no URLs).
 - Location: Jodhpur, Rajasthan (city only, no street address).
 - English only.

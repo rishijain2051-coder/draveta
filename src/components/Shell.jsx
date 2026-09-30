@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { MARK, WORD, WORD_BOX } from '../brand.js'
-import { PRODUCTS, PHONE, TEL, wa, CITY } from '../data.js'
+import { PRODUCTS, GROUPS, inGroup, PHONE, TEL, wa, CITY } from '../data.js'
 import Icon from './Icon.jsx'
 
 export function Logo({ className = '' }) {
@@ -42,11 +42,15 @@ export function Nav() {
         <div className="nav-drop">
           <Link to={to('#products')}>Products</Link>
           <div className="nav-panel">
-            {PRODUCTS.map((p) => (
-              <Link key={p.slug} to={`/products/${p.slug}`}><span className="mono">{p.stage}</span><b>{p.name}</b></Link>
+            {GROUPS.map((g) => (
+              <div key={g.id} className="nav-col">
+                <p className="mono">{g.name}</p>
+                {inGroup(g.id).map((p) => <Link key={p.slug} to={`/products/${p.slug}`}>{p.name}</Link>)}
+              </div>
             ))}
           </div>
         </div>
+        <NavLink to="/work/oswal-erp">Work</NavLink>
         <Link to={to('#services')}>Services</Link>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/contact">Contact</NavLink>
@@ -62,6 +66,7 @@ export function Nav() {
           {PRODUCTS.map((p) => <li key={p.slug}><Link to={`/products/${p.slug}`}>{p.name}<span className="mono">{p.stage}</span></Link></li>)}
         </ul>
         <ul className="menu-main">
+          <li><Link to="/work/oswal-erp">Work</Link></li>
           <li><Link to={to('#services')}>Services</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
@@ -90,6 +95,7 @@ export function Footer() {
         <div>
           <p className="foot-h mono">Company</p>
           <ul>
+            <li><Link to="/work/oswal-erp">Oswal Handicrafts ERP</Link></li>
             <li><Link to={to('#services')}>Services</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact</Link></li>

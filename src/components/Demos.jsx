@@ -221,4 +221,158 @@ export function Connect() {
   )
 }
 
-export const DEMOS = { 't-cal': TCal, 'sticker-scanner': Scanner, 't-job-sheet': JobSheet, 't-workflow': Workflow, 'sticker-maker': Label, 't-connect': Connect }
+/* ── Draveta PMS: check a guest out and the clean appears on its own ── */
+const DEPARTURES = [['204', 'Mehta · 2 nights', true], ['311', 'Khan · 1 night', false], ['108', 'Rao · 3 nights', true]]
+export function PMS() {
+  const [out, setOut] = useState([])
+  const cleans = []
+  const load = { 'HK-1': 2, 'HK-2': 1 }
+  for (const room of out) {
+    const who = Object.keys(load).sort((a, b) => load[a] - load[b])[0]
+    load[who] += 2
+    cleans.push([room, who, DEPARTURES.find((d) => d[0] === room)[2]])
+  }
+  return (
+    <div className="ui ui-pms">
+      <header className="ui-bar"><b>Draveta PMS</b><span>Today · Front desk</span></header>
+      <p className="ui-sub">Departures</p>
+      <ul className="ui-market">
+        {DEPARTURES.map(([room, guest]) => (
+          <li key={room}>
+            <div><b>Room {room}</b><span>{guest}</span></div>
+            {out.includes(room)
+              ? <span className="ui-chip s2">Checked out</span>
+              : <button type="button" className="ui-chip s1" onClick={() => setOut([...out, room])}>Check out</button>}
+          </li>
+        ))}
+      </ul>
+      <p className="ui-sub">Housekeeping board {cleans.length > 0 && <em>Nobody typed these</em>}</p>
+      <ul className="ui-market ui-board" aria-live="polite">
+        {cleans.length === 0 && <li className="ui-empty">No cleans yet. Check a guest out.</li>}
+        {cleans.map(([room, who, urgent]) => (
+          <li key={room} className="ui-new">
+            <div><b>Clean · Room {room}</b><span>2 credits · {who}, lightest load</span></div>
+            {urgent ? <span className="ui-flag">Arrival today</span> : <span className="ui-chip s0">Normal</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+/* ── HConcierge: the guest's room page, opened from the QR on the desk ── */
+const ASKS = [['Towels', 'Housekeeping', 10], ['Room service', 'Kitchen', 30], ['Wake-up call', 'Front desk', 5], ['Laundry pickup', 'Laundry', 20]]
+export function Concierge() {
+  const [reqs, setReqs] = useState([])
+  useEffect(() => {
+    const open = reqs.find((r) => !r.ok)
+    if (!open) return
+    const id = setTimeout(() => setReqs((rs) => rs.map((r) => (r.id === open.id ? { ...r, ok: true } : r))), 1400)
+    return () => clearTimeout(id)
+  }, [reqs])
+  return (
+    <div className="ui ui-phone ui-hc">
+      <div className="ui-status"><span>21:08</span><span className="ui-notch" /><span>Wi-Fi</span></div>
+      <header className="ui-bar"><b>Room 305</b><span>Guest page</span></header>
+      <div className="ui-tabs" aria-hidden="true">
+        {['Home', 'Dining', 'Services', 'Hotel'].map((t, i) => <span key={t} className={i === 0 ? 'is-on' : ''}>{t}</span>)}
+      </div>
+      <p className="ui-sub">Quick asks</p>
+      <div className="ui-asks">
+        {ASKS.map(([label, team, mins]) => (
+          <button key={label} type="button" onClick={() => setReqs([{ label, team, mins, ok: false, id: Date.now() }, ...reqs].slice(0, 4))}>{label}</button>
+        ))}
+      </div>
+      <p className="ui-sub">Your requests</p>
+      <ul className="ui-list" aria-live="polite">
+        {reqs.length === 0 && <li className="ui-empty">Tap a quick ask. It goes straight to the right team.</li>}
+        {reqs.map((r) => (
+          <li key={r.id} className={r.ok ? 'is-ok' : ''}>
+            <span className="ui-mark">{r.ok && <Icon name="check" size={14} />}</span>
+            <span><b>{r.team} · target {r.mins} min</b>{r.label} · {r.ok ? 'Accepted' : 'Sent'}</span>
+          </li>
+        ))}
+      </ul>
+      <button type="button" className="ui-btn">Message the front desk</button>
+    </div>
+  )
+}
+
+/* ── DueDo: reminders for one person or the whole family ── */
+export function DueDo() {
+  const [items, setItems] = useState([
+    ['Electricity bill', '2 Oct', 'Mine', 'Push', false],
+    ['Maa’s birthday', '5 Oct', 'Family', 'Push + email', false],
+    ['Car insurance renewal', '18 Oct', 'Mine', 'Email', false],
+  ])
+  const [text, setText] = useState('')
+  const add = (e) => {
+    e.preventDefault()
+    if (!text.trim()) return
+    setItems([[text.trim(), 'Tomorrow', 'Mine', 'Push', false], ...items])
+    setText('')
+  }
+  return (
+    <div className="ui ui-duedo">
+      <header className="ui-bar"><b>DueDo</b><span>{items.filter((i) => !i[4]).length} coming up</span></header>
+      <form className="ui-add" onSubmit={add}>
+        <span className="ui-input"><input value={text} onChange={(e) => setText(e.target.value)} placeholder="Add a reminder" aria-label="New reminder" /></span>
+        <button type="submit" className="ui-chip s2" aria-label="Add reminder"><Icon name="plus" size={14} /></button>
+      </form>
+      <ul className="ui-steps">
+        {items.map(([t, when, list, via, done], i) => (
+          <li key={t + i} className={done ? 'is-ok' : ''}>
+            <button type="button" className="ui-mark" onClick={() => setItems(items.map((x, j) => (j === i ? [...x.slice(0, 4), !x[4]] : x)))} aria-label={`${done ? 'Undo' : 'Mark done'}: ${t}`}>{done && <Icon name="check" size={14} />}</button>
+            <span className={done ? 'ui-done' : ''}>{t}<small>{list} · {via}</small></span>
+            <em className="mono">{when}</em>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+/* ── Oswal Handicrafts ERP: the costing engine. Change the size, the costing follows ── */
+const money = (n) => `₹${n.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`
+export function Costing() {
+  const [d, setD] = useState({ l: '30', w: '18', t: '1.5' })
+  const L = num(d.l), W = num(d.w), T = num(d.t)
+  const lines = [
+    ['Sheesham top', 'CFT', `${L}×${W}×${T} in ÷ 1728`, (L * W * T) / 1728, 2200, 'cft'],
+    ['Iron frame', 'WEIGHT', '6 kg × (1 + 5% wastage)', 6 * 1.05, 95, 'kg'],
+    ['Lacquer, both faces', 'SQFT', `${L}×${W} in ÷ 144 × 2`, ((L * W) / 144) * 2, 18, 'sqft'],
+    ['Hardware kit', 'QTY', '1 set', 1, 60, 'set'],
+  ]
+  const total = lines.reduce((a, l) => a + l[3] * l[4], 0)
+  const f = (k, label) => (
+    <label className="ui-field">
+      <span>{label}</span>
+      <span className="ui-input"><input inputMode="decimal" value={d[k]} onChange={(e) => setD({ ...d, [k]: e.target.value.replace(/[^\d.]/g, '') })} aria-label={`${label} in inches`} /><em>in</em></span>
+    </label>
+  )
+  return (
+    <div className="ui ui-cost">
+      <header className="ui-bar"><b>Oswal ERP</b><span>Costing sheet · Side table</span></header>
+      <div className="ui-grid3">{f('l', 'Length')}{f('w', 'Width')}{f('t', 'Top')}</div>
+      <table>
+        <thead><tr><th>Line</th><th>Method</th><th>Measure</th><th>Cost</th></tr></thead>
+        <tbody>
+          {lines.map(([name, m, how, q, rate, unit]) => (
+            <tr key={name}>
+              <td>{name}<small className="mono">{how}</small></td>
+              <td className="mono">{m}</td>
+              <td className="mono">{fmt(q, 2)} {unit}<small>@ {money(rate)}</small></td>
+              <td className="mono">{money(q * rate)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <output className="ui-result" aria-live="polite"><span>Ex-factory cost</span><strong>{money(total)}</strong><em>per piece</em></output>
+    </div>
+  )
+}
+
+export const DEMOS = {
+  't-cal': TCal, 'sticker-scanner': Scanner, 't-job-sheet': JobSheet, 't-workflow': Workflow, 'sticker-maker': Label, 't-connect': Connect,
+  'draveta-pms': PMS, hconcierge: Concierge, duedo: DueDo,
+}

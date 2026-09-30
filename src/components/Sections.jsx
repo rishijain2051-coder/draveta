@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { PRODUCTS, SERVICES, PHONE, TEL, wa, CITY } from '../data.js'
+import { PRODUCTS, GROUPS, inGroup, SERVICES, PHONE, TEL, wa, CITY } from '../data.js'
+import { Costing } from './Demos.jsx'
 import Icon from './Icon.jsx'
 
 // Adds .is-drawn once the element enters the viewport; line art draws itself from there.
@@ -50,11 +51,11 @@ export function Services() {
   )
 }
 
-export function Chain({ current, compact = false }) {
+export function Chain({ items = inGroup('timber'), current, compact = false }) {
   const ref = useDrawn()
   return (
-    <ol className={`chain ${compact ? 'chain-compact' : ''}`} ref={ref}>
-      {PRODUCTS.map((p, i) => (
+    <ol className={`chain ${compact ? 'chain-compact' : ''}`} ref={ref} style={{ '--n': items.length }}>
+      {items.map((p, i) => (
         <li key={p.slug} className={`${i % 2 ? 'dn' : 'up'} ${current === p.slug ? 'is-here' : ''}`} style={{ '--i': i }}>
           <Link to={`/products/${p.slug}`} aria-current={current === p.slug ? 'page' : undefined}>
             <span className="chain-body">
@@ -70,15 +71,65 @@ export function Chain({ current, compact = false }) {
   )
 }
 
+function Line({ g }) {
+  return (
+    <div className={`line line-${g.id}`}>
+      <div className="line-head">
+        <h3>{g.name}</h3>
+        <p>{g.note}</p>
+      </div>
+      <Chain items={inGroup(g.id)} />
+    </div>
+  )
+}
+
 export function Products() {
   return (
     <section id="products" className="sec sec-chain" aria-labelledby="products-h">
       <div className="sec-head">
-        <h2 id="products-h">Six products. One industry, end to end.</h2>
-        <p>Before we built for anyone else, we built for the trade around us. From buying the log to loading the container, every step has a Draveta product, and all six are live.</p>
+        <h2 id="products-h">Nine products. Three industries. One team.</h2>
+        <p>We started with the trade around us and built it end to end, from buying the log to loading the container. Then hotels. Then the reminders every family forgets. Every one of them was written from the first line.</p>
       </div>
-      <Chain />
+      <Line g={GROUPS[0]} />
+      <div className="lines-row">{GROUPS.slice(1).map((g) => <Line key={g.id} g={g} />)}</div>
       <p className="chain-coda">Same team, same standard, for whatever you need built next.</p>
+    </section>
+  )
+}
+
+const MODULES = [
+  ['Product Management', 'Products, multi-method costing, images', true],
+  ['Operations', 'Proformas, orders, production board, accounting', true],
+  ['Manforce', 'Workers, muster roll, wages, advances, statutory dues', true],
+  ['Finished Product & Sales', 'Container planning', false],
+]
+export function Work({ page = false }) {
+  const ref = useDrawn()
+  const Tag = page ? 'h1' : 'h2'
+  return (
+    <section className={`sec sec-work ${page ? 'sec-work-page' : ''}`} ref={ref} aria-labelledby="work-h">
+      <div className="work-copy">
+        <Tag id="work-h" className={page ? 'ph-h1 ink-in' : undefined}>A full ERP for Oswal Handicrafts.</Tag>
+        <p className="work-lede">Oswal Handicrafts is a furniture and hardware exporter in Jodhpur. We built them a modular ERP from scratch, where every module feeds the next.</p>
+        <table className="work-mods">
+          <caption className="sr">ERP modules and their status</caption>
+          <tbody>
+            {MODULES.map(([name, what, live]) => (
+              <tr key={name}>
+                <th scope="row">{name}</th>
+                <td>{what}</td>
+                <td className={`mono ${live ? 'is-live' : ''}`}>{live ? 'Live' : 'Next'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="work-flow">A product’s costing drives its quoted price and material sheets. Its stage line decides how pieces travel the factory floor. A worker named on a stage hand-over earns for it, and what the workforce is owed joins the same payables as vendors and suppliers.</p>
+        {!page && <Link className="btn btn-line" to="/work/oswal-erp">Read the case <Icon name="arrow" /></Link>}
+      </div>
+      <figure className="ph-demo">
+        <div className="ph-sheet"><Costing /></div>
+        <figcaption className="mono">The costing engine, with sample rates. Change the size and every line follows.</figcaption>
+      </figure>
     </section>
   )
 }

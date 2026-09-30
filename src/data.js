@@ -3,10 +3,11 @@ export const TEL = 'tel:+919829011726'
 export const wa = (text) => `https://wa.me/919829011726${text ? `?text=${encodeURIComponent(text)}` : ''}`
 export const CITY = 'Jodhpur, Rajasthan'
 
-// Ordered along the chain: buying timber → loading the container.
+// Timber products run in chain order: buying timber → loading the container.
 export const PRODUCTS = [
   {
     slug: 't-connect',
+    group: 'timber',
     name: 'T-Connect',
     stage: 'Trade',
     line: 'The marketplace where timber sellers and buyers meet.',
@@ -19,6 +20,7 @@ export const PRODUCTS = [
   },
   {
     slug: 't-cal',
+    group: 'timber',
     name: 'T-Cal',
     stage: 'Estimate',
     line: 'Precision timber calculator for estimating, optimising and buying.',
@@ -31,6 +33,7 @@ export const PRODUCTS = [
   },
   {
     slug: 't-workflow',
+    group: 'timber',
     name: 'T-Workflow',
     stage: 'Order',
     line: 'Order and production workflow, from order to PO and JO.',
@@ -43,6 +46,7 @@ export const PRODUCTS = [
   },
   {
     slug: 't-job-sheet',
+    group: 'timber',
     name: 'T-Job Sheet',
     stage: 'Produce',
     line: 'Digital job sheets for every task on the production floor.',
@@ -55,6 +59,7 @@ export const PRODUCTS = [
   },
   {
     slug: 'sticker-maker',
+    group: 'timber',
     name: 'Sticker Maker',
     stage: 'Label',
     line: 'Barcodes, container labels and shipping manifests, ready to print.',
@@ -67,6 +72,7 @@ export const PRODUCTS = [
   },
   {
     slug: 'sticker-scanner',
+    group: 'timber',
     name: 'Sticker Scanner',
     stage: 'Load',
     line: 'Scan every carton on a phone and check the container against its manifest.',
@@ -77,9 +83,55 @@ export const PRODUCTS = [
       ['Nothing left behind', 'See what is missing before the container is sealed, not after it sails.'],
     ],
   },
+  {
+    slug: 'draveta-pms',
+    group: 'hotel',
+    name: 'Draveta PMS',
+    stage: 'Run the hotel',
+    line: 'End-to-end hotel management, from reservation to night audit.',
+    desc: 'Reservations, front desk, housekeeping, maintenance, billing, F&B, stores, people, banquets and CRM, for a single property or a group. Built for India first, with GST worked out on what a room actually sold for.',
+    points: [
+      ['The software notices', 'A guest checks out and the clean is already on the housekeeping board, marked urgent if someone arrives into that room today. Nobody typed it.'],
+      ['GST done properly', 'CGST and SGST or IGST by place of supply, HSN/SAC on every line, a gapless invoice series per financial year, and Form C for foreign nationals.'],
+      ['One hotel or a group', 'Every automatic rule can be switched off per property, because a twelve-room guest house is not a two-hundred-room resort.'],
+    ],
+  },
+  {
+    slug: 'hconcierge',
+    group: 'hotel',
+    name: 'HConcierge',
+    stage: 'Guest requests',
+    line: 'Guests scan the QR in their room and ask for anything. No app, no login.',
+    desc: 'In-room guest requests for hotels, built to take the phone out of the loop between a hotel room and reception. Room service, towels, a massage, a wake-up call, the wifi password, or a message to the front desk.',
+    points: [
+      ['Scan and ask', 'The QR card on the desk opens that room’s page. No app to install, nothing to type.'],
+      ['Routed and timed', 'Every request goes to the team that actually does it, is timed against a target, and escalates if it is forgotten.'],
+      ['Part of the PMS', 'HConcierge is the guest-facing module of Draveta PMS, so the bill a guest reads on their phone is the same one the front desk sees.'],
+    ],
+  },
+  {
+    slug: 'duedo',
+    group: 'everyday',
+    name: 'DueDo',
+    stage: 'Reminders',
+    line: 'Bills, birthdays, renewals. Just missed it? Never again.',
+    desc: 'A multi-user personal reminder app. Reminders are time-based and reach you on your lock screen by push notification, by email, or both, whichever each person chooses.',
+    points: [
+      ['On time, every time', 'Time-based reminders by push to the lock screen, by email, or both.'],
+      ['For one, or the family', 'Keep a private list, or join a family with a shared list every member can see and assign.'],
+      ['Installs like an app', 'A web app you can add to your home screen, with no app store in the way.'],
+    ],
+  },
 ]
 
 export const product = (slug) => PRODUCTS.find((p) => p.slug === slug)
+
+export const GROUPS = [
+  { id: 'timber', name: 'Timber & export', note: 'From buying the log to loading the container.' },
+  { id: 'hotel', name: 'Hotels', note: 'The PMS runs the property; HConcierge is its guest-facing module.' },
+  { id: 'everyday', name: 'Everyday', note: 'Software for the things every family forgets.' },
+]
+export const inGroup = (id) => PRODUCTS.filter((p) => p.group === id)
 
 export const SERVICES = [
   { name: 'Web apps', desc: 'Business software, dashboards, internal tools and ERPs, built around the way your business already runs.', art: 'web' },

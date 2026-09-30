@@ -12,7 +12,8 @@ export default function About() {
           <p className="ph-lede">
             Draveta Technologies is a software company in Jodhpur. We started with the trade around us, timber and
             furniture export, and wrote six products for it, from the timber calculator to the container scanner.
-            Now the same team builds web apps, mobile apps, websites and automation for businesses of every kind.
+            Then a hotel PMS with its guest concierge, a reminder app for families, and a full ERP for Oswal Handicrafts.
+            The same team builds web apps, mobile apps, websites and automation for businesses of every kind.
           </p>
         </div>
         <Mark className="about-mark" />
