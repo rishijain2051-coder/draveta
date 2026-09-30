@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-30T00:00:00Z",
+  "title": "Design System: Draveta Technologies",
+  "extensions": {
+    "colorMeta": {
+      "film": {
+        "role": "neutral",
+        "displayName": "Drafting Film",
+        "canonical": "#eef1f3",
+        "tonalRamp": [
+          "#1a1e22",
+          "#3d4654",
+          "#5e697a",
+          "#8f9aa6",
+          "#c3cbd3",
+          "#e1e6ea",
+          "#eef1f3"
+        ]
+      },
+      "film-2": {
+        "role": "neutral",
+        "displayName": "Film Secondary",
+        "canonical": "#e1e6ea",
+        "tonalRamp": [
+          "#1a1e22",
+          "#4a5565",
+          "#778a99",
+          "#a6b4c4",
+          "#d1dce5",
+          "#e1e6ea"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#fbfcfd",
+        "tonalRamp": [
+          "#0c0e12",
+          "#5a6375",
+          "#8998ac",
+          "#b8c8d8",
+          "#e8f1f8",
+          "#f5f9fc",
+          "#fbfcfd"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0c0e12",
+        "tonalRamp": [
+          "#0c0e12",
+          "#1f2834",
+          "#3d4e66",
+          "#5d7090",
+          "#8ca5c0",
+          "#b8c8d8",
+          "#e8f1f8"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink Secondary",
+        "canonical": "#353d49",
+        "tonalRamp": [
+          "#0c0e12",
+          "#1f2834",
+          "#353d49",
+          "#525b6b",
+          "#7a8a9f",
+          "#a8b8cc",
+          "#d8e4f0"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink Tertiary",
+        "canonical": "#56606d",
+        "tonalRamp": [
+          "#0c0e12",
+          "#2a3541",
+          "#56606d",
+          "#768299",
+          "#9dafca",
+          "#c4d4e8",
+          "#e8f0f8"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#c3cbd3",
+        "tonalRamp": [
+          "#1a1e22",
+          "#4a5565",
+          "#778a99",
+          "#a3b4c8",
+          "#c3cbd3",
+          "#dbe4ed",
+          "#f0f4f8"
+        ]
+      },
+      "rule-2": {
+        "role": "neutral",
+        "displayName": "Rule Secondary",
+        "canonical": "#8f9aa6",
+        "tonalRamp": [
+          "#1a1e22",
+          "#3d4e66",
+          "#5f7a94",
+          "#8f9aa6",
+          "#b3c4d6",
+          "#d6e3ed",
+          "#f0f4f8"
+        ]
+      },
+      "cons": {
+        "role": "secondary",
+        "displayName": "Construction Blue",
+        "canonical": "#4e9fd0",
+        "tonalRamp": [
+          "#051f3b",
+          "#1a4a7a",
+          "#2b6fa8",
+          "#4e9fd0",
+          "#7eb8e8",
+          "#a8d4f0",
+          "#d4e9f8"
+        ]
+      },
+      "cons-ink": {
+        "role": "secondary",
+        "displayName": "Construction Ink",
+        "canonical": "#1c6a9a",
+        "tonalRamp": [
+          "#051f3b",
+          "#0f3f6a",
+          "#1c6a9a",
+          "#3a8abb",
+          "#6aabdb",
+          "#99c9ed",
+          "#c4e0f5"
+        ]
+      },
+      "ultra": {
+        "role": "primary",
+        "displayName": "Ultramarine",
+        "canonical": "#1e2acb",
+        "tonalRamp": [
+          "#040a3a",
+          "#0f1a80",
+          "#1e2acb",
+          "#3d49dd",
+          "#6075f0",
+          "#8d99ff",
+          "#c4d1ff"
+        ]
+      },
+      "ultra-2": {
+        "role": "primary",
+        "displayName": "Ultramarine Dark",
+        "canonical": "#161fa0",
+        "tonalRamp": [
+          "#040a3a",
+          "#0d1570",
+          "#161fa0",
+          "#2a3bc4",
+          "#4a60dd",
+          "#7a8fff",
+          "#b8c4ff"
+        ]
+      },
+      "ultra-tint": {
+        "role": "primary",
+        "displayName": "Ultramarine Tint",
+        "canonical": "#cdd1fc",
+        "tonalRamp": [
+          "#2e3fb8",
+          "#5a6dd4",
+          "#8895ed",
+          "#adb8f8",
+          "#cdd1fc",
+          "#dfe2ff",
+          "#f0f1ff"
+        ]
+      },
+      "red": {
+        "role": "tertiary",
+        "displayName": "Redline",
+        "canonical": "#c93d25",
+        "tonalRamp": [
+          "#4a0f0a",
+          "#8a2a1a",
+          "#c93d25",
+          "#e85a40",
+          "#f08060",
+          "#f5a899",
+          "#fac9b8"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline, inked as the page loads (weight 200–820 animated)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings (h2), weighted and tracked for authority."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Subsection and product names, 2vw fluid sizing."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, UI content, form fields. Fixed 1.0625rem on all sizes."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Form labels, dimension callouts, metadata. Monospace, tabular numbers."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Code, measurements, loader readout, internal UI labels. 0.7rem, tabular-nums."
+      }
+    },
+    "shadows": [
+      {
+        "name": "panel",
+        "value": "0 22px 44px -20px rgb(12 14 18 / 0.32)",
+        "use": "Rendered demo UI panels (scaled by render progress) and the nav product panel"
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Exponential ease-out for all transitions and SVG stroke drawing. Constant pen-speed feel."
+      },
+      {
+        "name": "transition-quick",
+        "value": "0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Button hover, focus ring, opacity fades."
+      },
+      {
+        "name": "transition-standard",
+        "value": "0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Color shifts, border changes, state transitions."
+      },
+      {
+        "name": "transition-slow",
+        "value": "0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "SVG stroke drawing (frame outlines, chain connectors)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "lg",
+        "value": "1100px",
+        "purpose": "Desktop. Nav condensed, all columns visible."
+      },
+      {
+        "name": "md",
+        "value": "899px",
+        "purpose": "Tablet. Nav collapses to hamburger, layout shifts to single column."
+      },
+      {
+        "name": "sm-hero",
+        "value": "819px",
+        "purpose": "Hero stacks to mobile layout (copy above, knot below), cluster resizes."
+      },
+      {
+        "name": "sm",
+        "value": "560px",
+        "purpose": "Mobile. Single-column forms, compressed spacing."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Button Primary",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ultramarine CTA, signal for built and action.",
+      "html": "<button class=\"ds-btn-primary\">CALL +91 98290 11726</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.6em; min-height: 52px; padding: 0 22px; font-family: 'Mona Sans Variable', system-ui, sans-serif; font-weight: 640; font-size: 1rem; font-stretch: 105%; text-decoration: none; white-space: nowrap; border: 1.5px solid transparent; border-radius: 0; cursor: pointer; background-color: #1e2acb; color: #ffffff; position: relative; transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { background-color: #161fa0; } .ds-btn-primary:focus-visible { outline: 2px solid #1e2acb; outline-offset: 3px; }"
+    },
+    {
+      "name": "Button Line",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Bordered secondary button, reverses on hover.",
+      "html": "<button class=\"ds-btn-line\">WHATSAPP</button>",
+      "css": ".ds-btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 0.6em; min-height: 52px; padding: 0 22px; font-family: 'Mona Sans Variable', system-ui, sans-serif; font-weight: 640; font-size: 1rem; font-stretch: 105%; text-decoration: none; white-space: nowrap; border: 1.5px solid #0c0e12; border-radius: 0; cursor: pointer; background-color: transparent; color: #0c0e12; position: relative; transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-line:hover { background-color: #0c0e12; color: #eef1f3; } .ds-btn-line:focus-visible { outline: 2px solid #1e2acb; outline-offset: 3px; }"
+    },
+    {
+      "name": "Form Input",
+      "kind": "input",
+      "refersTo": null,
+      "description": "Single-line text field with film background, ultramarine focus.",
+      "html": "<div class=\"ds-form-field\"><label><span>Your Name</span><input type=\"text\" placeholder=\"Enter name\"></label></div>",
+      "css": ".ds-form-field { display: flex; flex-direction: column; gap: 7px; } .ds-form-field label > span { display: block; font-size: 0.88rem; font-weight: 620; color: #0c0e12; } .ds-form-field input { width: 100%; font: inherit; font-size: 1rem; color: #0c0e12; padding: 12px 13px; border: 1px solid #8f9aa6; border-radius: 0; background-color: #eef1f3; transition: border-color 0.2s, background-color 0.2s; } .ds-form-field input:hover { border-color: #56606d; } .ds-form-field input:focus { outline: 2px solid #1e2acb; outline-offset: -1px; border-color: #1e2acb; background-color: #fbfcfd; }"
+    },
+    {
+      "name": "Title Block Cell",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Credential display in drafting title-block grid (4-column, 2px gaps).",
+      "html": "<div class=\"ds-tblock\"><div><dt>Est.</dt><dd>15 years</dd></div><div><dt>Support</dt><dd>24/7</dd></div></div>",
+      "css": ".ds-tblock { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-flow: dense; gap: 1px; margin: 0; border: 2px solid #0c0e12; background-color: #0c0e12; } .ds-tblock > div { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-height: 132px; padding: 14px 18px 18px; background-color: #fbfcfd; } .ds-tblock dt { color: #56606d; font-size: 0.72rem; font-weight: 400; margin: 0; } .ds-tblock dd { margin: 0; font-size: 1.15rem; font-weight: 600; line-height: 1.3; }"
+    },
+    {
+      "name": "Demo UI (Wireframe to Rendered)",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Transition using --r (render progress 0–1). Lines fade to color, content fades in.",
+      "html": "<div class=\"ds-ui\"><div class=\"ds-ui-bar\"><b>T-Cal</b><span>Beta</span></div><div class=\"ds-ui-body\"><input type=\"number\" placeholder=\"Board thickness\"></div></div>",
+      "css": ".ds-ui { --k: calc(var(--r, 1) * 100%); height: 100%; display: flex; flex-direction: column; font-size: 13px; line-height: 1.35; color: color-mix(in srgb, #0c0e12 var(--k), transparent); background-color: color-mix(in srgb, #fbfcfd var(--k), transparent); border: 1px solid color-mix(in srgb, #c3cbd3 var(--k), #4e9fd0); border-radius: 0; box-shadow: 0 calc(22px * var(--r, 1)) calc(44px * var(--r, 1)) -20px rgb(12 14 18 / calc(0.32 * var(--r, 1))); } .ds-ui-bar { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 11px 14px; border-bottom: 1px solid color-mix(in srgb, #c3cbd3 var(--k), #4e9fd0); } .ds-ui-bar b { font-weight: 740; font-stretch: 112%; font-size: 14px; color: color-mix(in srgb, #0c0e12 var(--k), transparent); } .ds-ui-body { flex: 1; padding: 14px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Fixed 72px nav, transparent on load, solid on scroll. Responsive hamburger at 899px.",
+      "html": "<nav class=\"ds-nav\"><div class=\"ds-logo\"><svg class=\"ds-logo-mark\" viewBox=\"0 0 34 34\" width=\"34\" height=\"34\"><circle cx=\"17\" cy=\"17\" r=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg><svg class=\"ds-logo-word\" viewBox=\"0 0 645 152\" width=\"auto\" height=\"25\"><text x=\"50%\" y=\"50%\" font-weight=\"800\">DRAVETA</text></svg></div></nav>",
+      "css": ".ds-nav { position: fixed; inset: 0 0 auto; z-index: 50; height: 72px; display: flex; align-items: center; gap: 36px; padding: 0 clamp(16px, 5vw, 72px); transition: background-color 0.3s, box-shadow 0.3s; background-color: transparent; } .ds-nav.is-solid { background-color: #eef1f3; box-shadow: 0 1px 0 #c3cbd3; } .ds-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: #0c0e12; } .ds-logo-mark { width: 34px; height: 34px; } .ds-logo-word { height: 25px; width: auto; aspect-ratio: 645.67 / 152.47; fill: currentColor; }"
+    },
+    {
+      "name": "Products Chain",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Horizontal chain of products (6 desktop, 1 mobile), diamond nodes rotate 45°, connectors draw with scaleY.",
+      "html": "<ul class=\"ds-chain is-drawn\"><li><a href=\"#\"><div style=\"--i: 0\"><div class=\"ds-chain-name\">T-Cal</div><div class=\"ds-chain-line\">Timber estimation</div><div class=\"ds-chain-go\"><span>Explore</span></div></div></a></li></ul>",
+      "css": ".ds-chain { list-style: none; margin: 0; padding: 0; position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); height: 520px; } .ds-chain::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1.5px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s; } .ds-chain.is-drawn::before { transform: scaleX(1); } .ds-chain li { position: relative; } .ds-chain li::before { content: ''; position: absolute; left: 0; top: 50%; width: 13px; height: 13px; z-index: 1; border: 1.5px solid currentColor; background: #1e2acb; border-radius: 0; transform: translate(-1px, -50%) rotate(45deg) scale(0); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i) * 180ms + 300ms); } .ds-chain.is-drawn li::before { transform: translate(-1px, -50%) rotate(45deg) scale(1); } .ds-chain-name { font-size: clamp(1.4rem, 2.1vw, 2rem); font-weight: 760; font-stretch: 112%; letter-spacing: -0.02em; line-height: 1; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Drafting Board",
+    "overview": "Draveta's interface is a blueprint sheet where software construction happens in real time. Everything draws from first principles—geometry, datum lines, measurement callouts—before ink fills and color arrives. The visitor watches the company's own mark assemble from arcs and compass circles, then product interfaces render on the same construction lines. This isn't metaphorical slowness; lines move at constant pen speed, then the finished drawing solidifies. The world refuses the SaaS category default: no rounded cards, no icon tiles, no glass, no gradient overlays. Instead, hairline frames with dimension ticks, a paper-and-ink material, and ultramarine as the single committed color that owns the whole field when action matters.",
+    "keyCharacteristics": [
+      "Drafting paper aesthetic (grid background, construction geometry, measurement callouts)",
+      "Square corners and hairline borders throughout; rounding only on device frames (the phone demos) and status dots",
+      "Progressive build: lines draw, then ink fills, then color arrives",
+      "Ultramarine as the sole high-saturation accent; used sparingly and forcefully",
+      "Motion grammar: stroke-dashoffset drawing at constant speed, exponential ease-out, reduced motion shows finished state",
+      "Pen-plotter metaphor: the loader splits along the mark's 45° diagonal; the hero pins and scrubs construction/render progress on scroll"
+    ],
+    "rules": [
+      {
+        "name": "The Ultramarine Law",
+        "body": "Ultramarine is the site's only saturated accent and the signal for 'built' and 'action'. It appears on CTAs (buttons, links), the entire products section, the loader, and active form states. No ultramarine in neutral prose or the film grid; line art in the services list is the one illustrative use. It is never decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "All borders are 1px except section dividers (2px) and button registration marks (1.5px). No border-radius anywhere; corners are square. This is the drafting aesthetic: frames are drawn with a straight edge and a compass, not rounded.",
+        "section": "colors"
+      },
+      {
+        "name": "The Weight Ramp Rule",
+        "body": "Mona Sans weight is never static in the hero: it starts at 200 (hairline) as the loader finishes, then climbs through 620 during the first ~2.9 seconds as the mark finishes construction. All other type on the page is fixed weight. Only the hero injects motion into weight; the rest of the system is steady.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Law",
+        "body": "Martian Mono appears only on measurement callouts, inside the loader readout, on data tables, in form labels, and inside demo UI boxes (wireframes transitioning to rendered). Never use it for body prose or primary messaging. Its single job is to convey precision and engineering.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Use the three-layer color order: drafting film (ground), construction blue (geometry), ink + ultramarine (finish).",
+      "Keep borders hairline (1px) and corners square (0 radius) on all UI elements except the scanner phone device frame (30px radius only).",
+      "Animate SVG strokes using stroke-dasharray: 1 and stroke-dashoffset driven by CSS variables (--a, --s, --r), not SVG animations or JS transitions.",
+      "Make ultramarine decisions sparingly: CTAs, product section, loader, active states only. Never tint it or use it decoratively.",
+      "Use Martian Mono strictly for measurements, codes, data, and internal UI labels. Never use it for body prose or primary messaging.",
+      "Respect reduced-motion preference: show the finished drawing (all strokes at offset 0, all opacity at 1) and hide timing-based animations (duration 0.01ms).",
+      "Keep button text uppercase via font-weight and font-stretch, never text-transform: uppercase (preserves user select-and-copy).",
+      "Size type fluidly with clamp() for hero, section heads, and key labels; it scales from mobile to 4K without breakpoints."
+    ],
+    "donts": [
+      "Don't add glass, blurred backgrounds, or glows beyond the render sweep line; the only drop shadow is the soft offset one on rendered demo panels and the nav product panel.",
+      "Don't round corners anywhere except the phone device mockup (30px).",
+      "Don't use gradients, transparency overlays, or color blends in the palette itself.",
+      "Don't use icon fonts, emoji, or decorative illustration on the UI layer (the knot and loader geometry are drafting-plane elements, not components).",
+      "Don't animate through JavaScript; use CSS custom properties and CSS transitions/keyframes.",
+      "Don't place ultramarine on neutral prose or use it in tints for fill states. Ultramarine only signals action, construction, and the built state.",
+      "Don't invent new type scales or weight assignments; the hierarchy is the hierarchy.",
+      "Don't use the fine grid (24px) or construction blue for UI elements; those are drafting-plane backdrop, never component styling."
+    ]
+  }
+}
