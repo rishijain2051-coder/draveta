@@ -17,8 +17,8 @@ const PAGES = {
   },
   '/about': {
     title: 'About Draveta Technologies · Software Company, Jodhpur',
-    description: 'Draveta Technologies is a Jodhpur software company led by partners Naman Dhariwal and Rishi Jain. Timber, ERP, hotel and everyday software, built from scratch.',
-    keywords: ['Draveta Technologies', 'software company Jodhpur', 'Naman Dhariwal', 'Rishi Jain', 'software developers Rajasthan'],
+    description: 'Draveta Technologies is a Jodhpur software company led by partners Rishi Jain and Naman Dhariwal. Timber, ERP, hotel and everyday software, built from scratch.',
+    keywords: ['Draveta Technologies', 'software company Jodhpur', 'Rishi Jain', 'Naman Dhariwal', 'software developers Rajasthan'],
   },
   '/contact': {
     title: 'Contact Draveta Technologies · Book a Software Demo',
@@ -113,8 +113,8 @@ const org = {
   address: { '@type': 'PostalAddress', addressLocality: 'Jodhpur', addressRegion: 'Rajasthan', addressCountry: 'IN' },
   areaServed: { '@type': 'Country', name: 'India' },
   member: [
-    { '@type': 'Person', name: 'Naman Dhariwal', jobTitle: 'Partner' },
     { '@type': 'Person', name: 'Rishi Jain', jobTitle: 'Partner' },
+    { '@type': 'Person', name: 'Naman Dhariwal', jobTitle: 'Partner' },
   ],
   knowsAbout: ['Custom software development', ...SERVICES.map((s) => s.name), 'ERP software', 'Hotel management software', 'Timber industry software'],
   makesOffer: SERVICES.map((s) => ({
@@ -210,7 +210,7 @@ export function llmsTxt() {
     '## Key facts',
     `- Location: ${CITY}, India`,
     `- Contact: ${PHONE} (call or WhatsApp). Support runs 24/7.`,
-    '- Partners: Naman Dhariwal, Rishi Jain',
+    '- Partners: Rishi Jain, Naman Dhariwal',
     '- Experience: 15 years combined',
     `- Services: ${SERVICES.map((s) => `${s.name} (${s.desc.replace(/\.$/, '')})`).join('; ')}`,
     '',
