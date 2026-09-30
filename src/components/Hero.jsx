@@ -86,7 +86,7 @@ export default function Hero() {
         <div className="hero-copy">
           <h1 id="hero-title" className="hero-h1"><span>Anything.</span> <span>From scratch.</span></h1>
           <p className="hero-sub">
-            Draveta Technologies writes software from the first line: web apps, mobile apps, websites and automation.
+            Draveta Technologies is a software company in Jodhpur that writes software from the first line: web apps, mobile apps, websites and automation.
             <span className="lg"> Our proof: everything from a timber calculator to a hotel PMS, and a full ERP for Oswal Handicrafts.</span>
           </p>
           <div className="hero-cta">

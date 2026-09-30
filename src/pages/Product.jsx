@@ -4,7 +4,6 @@ import { DEMOS } from '../components/Demos.jsx'
 import { Chain, Close, useDrawn } from '../components/Sections.jsx'
 import Icon from '../components/Icon.jsx'
 import NotFound from './NotFound.jsx'
-import { useTitle } from '../title.js'
 
 export default function Product() {
   const { slug } = useParams()
@@ -13,7 +12,6 @@ export default function Product() {
 }
 
 function ProductPage({ p }) {
-  useTitle(`${p.name} · ${p.stage} · Draveta Technologies`)
   const ref = useDrawn()
   const Demo = DEMOS[p.slug]
   const i = PRODUCTS.indexOf(p)

@@ -32,7 +32,7 @@ export function Services() {
     <section id="services" className="sec sec-services" ref={ref} aria-labelledby="services-h">
       <div className="sec-head">
         <h2 id="services-h">If it runs on a screen, we build it.</h2>
-        <p>Every project starts the way ours did: a blank sheet and a real problem. No templates, no resold software. We write it, we ship it, we support it.</p>
+        <p>Custom software for businesses anywhere, written in Jodhpur. Every project starts the way ours did: a blank sheet and a real problem. No templates, no resold software. We write it, we ship it, we support it.</p>
       </div>
       <ul className="svc">
         {SERVICES.map((s, i) => (

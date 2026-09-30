@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
-import { useTitle } from '../title.js'
 
 export default function NotFound() {
-  useTitle('Not found · Draveta Technologies')
   return (
     <section className="ph ph-404">
       <div className="ph-copy">

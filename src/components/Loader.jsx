@@ -18,7 +18,7 @@ function Sheet({ pen }) {
   )
 }
 
-export default function Loader() {
+function Plotter() {
   const [phase, setPhase] = useState('plot') // plot → filled → split → gone
   const root = useRef(null)
   const pen = useRef(null)
@@ -92,4 +92,12 @@ export default function Loader() {
       </div>
     </div>
   )
+}
+
+// Client-only: prerendered HTML ships without the overlay (the #boot sheet covers the first paint),
+// so crawlers and no-JS visitors never meet a sheet that cannot split.
+export default function Loader() {
+  const [on, setOn] = useState(false)
+  useEffect(() => setOn(true), [])
+  return on ? <Plotter /> : null
 }

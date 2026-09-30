@@ -13,7 +13,7 @@ export const PRODUCTS = [
     line: 'Precision timber calculator for estimating, optimising and buying.',
     desc: 'Precision Timber Calculator for streamlined estimation, optimization, and procurement across the wood supply chain.',
     points: [
-      ['Estimation', 'Work out volumes from sizes and piece counts precisely, without notebook maths.'],
+      ['Estimation', 'Work out timber volume in CFT from sizes and piece counts, precisely and without notebook maths.'],
       ['Optimisation', 'Compare sizes and quantities before you commit, so every lot is used well.'],
       ['Procurement', 'Buy timber with numbers everyone on the deal can check.'],
     ],
@@ -160,7 +160,7 @@ export const TIMELINE = GROUPS.map((g) => ({ ...g, items: TIMELINE_ITEMS[g.id].m
 export const WEBSITES = ['Vardhman Impex', 'Wearo', 'Mayur Exports', 'Gen-C Media']
 
 export const SERVICES = [
-  { name: 'Web apps', desc: 'Business software, dashboards, internal tools and ERPs, built around the way your business already runs.', art: 'web' },
+  { name: 'Web apps', desc: 'Custom business software, dashboards, internal tools and ERPs, built around the way your business already runs.', art: 'web' },
   { name: 'Mobile apps', desc: 'Android and iOS apps for the shop floor, the field and your customers.', art: 'mobile' },
   { name: 'Websites', desc: 'Company and marketing websites that load fast on any phone, on any network.', art: 'site' },
   { name: 'Automation', desc: 'Barcode and label systems, integrations and workflows that take the retyping out of your day.', art: 'auto' },

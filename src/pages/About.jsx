@@ -1,9 +1,7 @@
 import { TitleBlock, Close } from '../components/Sections.jsx'
 import { Mark } from '../components/Knot.jsx'
-import { useTitle } from '../title.js'
 
 export default function About() {
-  useTitle('About · Draveta Technologies')
   return (
     <>
       <section className="ph ph-about">

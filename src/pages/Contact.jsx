@@ -1,10 +1,8 @@
 import { PHONE, TEL, wa, CITY } from '../data.js'
 import { DemoForm } from '../components/Sections.jsx'
 import Icon from '../components/Icon.jsx'
-import { useTitle } from '../title.js'
 
 export default function Contact() {
-  useTitle('Contact · Draveta Technologies')
   return (
     <section className="ph ph-contact">
       <div className="ph-copy">

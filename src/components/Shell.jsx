@@ -117,7 +117,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <p className="foot-legal mono">© {new Date().getFullYear()} Draveta Technologies. All rights reserved.</p>
+      <p className="foot-legal mono" suppressHydrationWarning>© {new Date().getFullYear()} Draveta Technologies. All rights reserved.</p>
     </footer>
   )
 }
