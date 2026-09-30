@@ -131,6 +131,7 @@ export const GROUPS = [
   { id: 'business', name: 'Business software', note: 'Whole systems for stores and factories.' },
   { id: 'everyday', name: 'Everyday', note: 'Software for the things every family forgets.' },
   { id: 'hotel', name: 'Hospitality', note: 'From one guest request to running the whole hotel.' },
+  { id: 'wip', name: 'Now building', note: 'Two big ones on the drawing board right now.' },
 ]
 export const inGroup = (id) => PRODUCTS.filter((p) => p.group === id)
 
@@ -144,6 +145,9 @@ const TIMELINE_ITEMS = {
     { name: 'Full-fledged ERP', to: '/work/oswal-erp', go: 'Read the case', stage: 'ERP', line: 'Costing, operations and workforce, built for Oswal Handicrafts.' }],
   everyday: ['duedo'],
   hotel: ['hconcierge', { name: 'Cafe Management', stage: 'Cafe', line: 'A management application for cafes.' }, 'draveta-pms'],
+  wip: [
+    { name: 'Tally Invoice Bridge', stage: 'In progress', line: 'Upload a bill, see exactly what it will post to Tally, debit by debit, and post it in one click. Runs on your own computer; no invoice leaves it.' },
+    { name: 'Assurance Console', stage: 'In progress', line: 'GST, bank and party reconciliation that runs offline, and an export register that keeps every invoice’s papers together until the eBRC is done.' }],
 }
 const resolve = (i) => {
   if (typeof i !== 'string') return i

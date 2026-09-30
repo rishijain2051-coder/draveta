@@ -92,16 +92,17 @@ function Line({ g }) {
 }
 
 export function Products() {
-  const [timber, business, everyday, hotel] = TIMELINE
+  const [timber, business, everyday, hotel, wip] = TIMELINE
   return (
     <section id="products" className="sec sec-chain" aria-labelledby="products-h">
       <div className="sec-head">
         <h2 id="products-h">From a timber calculator to a hotel PMS.</h2>
-        <p>Everything we have built, in the order we built it. We started with the trade around us, then whole systems for stores and factories, then everyday life, then hotels. Every one of them written from the first line.</p>
+        <p>Everything we have built, in the order we built it. We started with the trade around us, then whole systems for stores and factories, then everyday life, then hotels. Every one of them written from the first line, and two more still on the drawing board.</p>
       </div>
       <Line g={timber} />
       <div className="lines-row"><Line g={business} /><Line g={everyday} /></div>
       <div className="lines-row lines-full"><Line g={hotel} /></div>
+      <div className="lines-row lines-full"><Line g={wip} /></div>
       <p className="chain-coda">Same team, same standard, for whatever you need built next.</p>
     </section>
   )

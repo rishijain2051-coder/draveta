@@ -64,6 +64,7 @@ Build timeline (confirmed by the user 2026-09-30; the homepage shows products in
 2. Business software: Hardware Maintain Software (hardware store ERP: inventory, purchase history, material issue slips, store logs; repo `HARDWARE`) → Full-fledged ERP (Oswal Handicrafts)
 3. Everyday: DueDo
 4. Hospitality: HConcierge → Cafe Management Application (no details known; name only) → Hotel PMS
+5. Now building (in progress, "big projects", confirmed 2026-09-30): **TIB = Tally Invoice Bridge** (repo `tally-invoice-bridge`: upload a bill, review what it will post to Tally debit by debit, post in one click; OCR and AI run on the user's own computer, no invoice leaves it) and **AC = Assurance Console** (repo `assurance-console`: offline GST, bank and party reconciliation, plus an export register tracking shipping bill, BL, GSTR-1, payments and eBRC per invoice). Shown as "In progress"; no pages, no benchmark figures published.
 
 Client websites (confirmed 2026-09-30): Vardhman Impex (vardhman-impex.com), Wearo, Mayur Exports, Gen-C Media. Mention the names only; **only vardhman-impex.com may be previewed** (screenshot at `public/work/vardhman-impex.jpg`).
 

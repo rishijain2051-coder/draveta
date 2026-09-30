@@ -14,7 +14,9 @@ export default function About() {
             furniture export, and wrote six products for it, from the timber calculator to the container scanner.
             Then hardware store software and a full ERP for Oswal Handicrafts, a reminder app for families, and for
             hotels a guest concierge, a cafe management app and a full PMS. Along the way, websites for Vardhman Impex,
-            Wearo, Mayur Exports and Gen-C Media. The same team builds for businesses of every kind.
+            Wearo, Mayur Exports and Gen-C Media. Right now we are building two big ones: Tally Invoice Bridge, which
+            turns a bill into a checked Tally entry, and Assurance Console, for GST, bank and export reconciliation.
+            The same team builds for businesses of every kind.
           </p>
         </div>
         <Mark className="about-mark" />

@@ -804,22 +804,6 @@ html.is-loading { overflow: hidden; }
   .svc-foot { flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 32px; }
   .svc-foot p { font-size: 1.05rem; }
 
-  /* product lines: a name, one line, the step. The whole row is the link */
-  .line-head { border-top-color: rgb(255 255 255 / 0.22); padding-top: 32px; }
-  .line-head h3 { font-size: 1.35rem; }
-  .line-head p { font-size: 0.95rem; }
-  .lines-row { gap: 0; margin-top: 48px; }
-  .lines-row .line + .line { margin-top: 48px; }
-  .chain li { padding: 0 0 26px 40px; }
-  .chain .chain-a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: baseline; }
-  .chain-body { gap: 4px; }
-  .chain-go { display: none; }
-  .chain-name { font-size: 1.3rem; font-stretch: 104%; }
-  .chain-line { font-size: 0.92rem; max-width: 32ch; }
-  .chain-stage, .dn .chain-stage { order: 0; font-size: 0.66rem; opacity: 0.85; }
-  .chain-coda { font-size: 1.2rem; margin-top: 32px; }
-  .chain-compact li { padding-bottom: 14px; }
-  .chain-compact .chain-name { font-size: 1.05rem; }
 
   /* demo sheets lose the double frame on phones */
   .ph-sheet { padding: 0; border: 0; }
@@ -885,7 +869,6 @@ html.is-loading { overflow: hidden; }
 /* ─── Timeline rows ─── */
 .lines-full { grid-template-columns: minmax(0, 1fr); }
 .lines-full .chain { height: 460px; }
-.chain li.is-plain::before { background: transparent; }
 
 /* ─── Client websites ─── */
 .sites { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 48px 72px; align-items: end; }
@@ -913,4 +896,43 @@ html.is-loading { overflow: hidden; }
   .site-preview figcaption a { margin-left: 0; }
   .sites-more li { font-size: 1.35rem; padding: 12px 0; border-bottom-color: var(--rule); }
   .site-bar { height: 28px; }
+}
+
+/* ─── Now building: still in construction line, the pen still moving ─── */
+.line-wip .chain::before { background: repeating-linear-gradient(90deg, currentColor 0 10px, transparent 10px 18px); opacity: 0.8; }
+.line-wip .chain-line { color: var(--ultra-tint); }
+.line-wip .chain-stage { color: #fff; }
+.line-wip .chain::after {
+  content: ''; position: absolute; right: -5px; top: 50%; width: 10px; height: 10px; margin-top: -5px;
+  border-radius: 50%; background: #fff; animation: pen 1.8s var(--ease) infinite;
+}
+@keyframes pen { 0% { box-shadow: 0 0 0 0 rgb(255 255 255 / 0.55); } 70%, 100% { box-shadow: 0 0 0 12px rgb(255 255 255 / 0); } }
+@media (max-width: 899px) {
+  .line-wip .chain::before { background: repeating-linear-gradient(180deg, currentColor 0 10px, transparent 10px 18px); }
+  .line-wip .chain::after { right: auto; left: 6px; top: auto; bottom: -5px; margin-top: 0; }
+}
+
+/* ─── Vertical timeline (under 900px): the line, the diamonds and the pen tip share one axis ─── */
+@media (max-width: 899px) {
+  .chain { --ax: 11px; padding-left: 0; }
+  .chain::before { left: calc(var(--ax) - 0.75px); }
+  .chain li::before { left: calc(var(--ax) - 6.5px); }
+  .line-wip .chain::after { left: calc(var(--ax) - 5px); }
+
+  /* product lines: a name, one line, the step. The whole row is the link */
+  .line-head { border-top-color: rgb(255 255 255 / 0.22); padding-top: 32px; }
+  .line-head h3 { font-size: 1.35rem; }
+  .line-head p { font-size: 0.95rem; }
+  .lines-row { gap: 0; margin-top: 48px; }
+  .lines-row .line + .line { margin-top: 48px; }
+  .chain li { padding: 0 0 26px 40px; }
+  .chain .chain-a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: baseline; }
+  .chain-body { gap: 4px; }
+  .chain-go { display: none; }
+  .chain-name { font-size: 1.3rem; font-stretch: 104%; }
+  .chain-line { font-size: 0.92rem; max-width: 32ch; }
+  .chain-stage, .dn .chain-stage { order: 0; font-size: 0.66rem; opacity: 0.85; }
+  .chain-coda { font-size: 1.2rem; margin-top: 32px; }
+  .chain-compact li { padding-bottom: 14px; }
+  .chain-compact .chain-name { font-size: 1.05rem; }
 }
