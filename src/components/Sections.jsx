@@ -136,12 +136,12 @@ export function Work({ page = false }) {
 
 const SPEC = [
   ['Drawn by', 'Draveta Technologies', 'w2'],
-  ['Location', CITY, ''],
+  ['Location', CITY, 'm2'],
   ['Experience', '15 years combined', 'big'],
   ['Support', '24/7', 'big'],
   ['Grade', 'Enterprise', 'big'],
   ['Engineering', 'Developed by software engineers with deep industrial experience', 'w2'],
-  ['Security', 'Military-standard security protocols and compliance frameworks', ''],
+  ['Security', 'Military-standard security protocols and compliance frameworks', 'm2'],
   ['Partners', 'Naman Dhariwal · Rishi Jain', 'w2'],
   ['Sheet', '1 of 1', ''],
 ]

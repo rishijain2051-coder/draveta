@@ -61,18 +61,23 @@ export function Nav() {
       </button>
 
       <div id="menu" className="menu" hidden={!open}>
-        <p className="menu-h mono">Products</p>
-        <ul className="menu-products">
-          {PRODUCTS.map((p) => <li key={p.slug}><Link to={`/products/${p.slug}`}>{p.name}<span className="mono">{p.stage}</span></Link></li>)}
-        </ul>
         <ul className="menu-main">
+          <li><Link to={to('#products')}>Products</Link></li>
           <li><Link to="/work/oswal-erp">Work</Link></li>
           <li><Link to={to('#services')}>Services</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>
+        <div className="menu-products">
+          {GROUPS.map((g) => (
+            <div key={g.id}>
+              <p className="mono">{g.name}</p>
+              <ul>{inGroup(g.id).map((p) => <li key={p.slug}><Link to={`/products/${p.slug}`}>{p.name}</Link></li>)}</ul>
+            </div>
+          ))}
+        </div>
         <div className="menu-cta">
-          <a className="btn btn-ultra" href={TEL}><Icon name="phone" /> Call {PHONE}</a>
+          <a className="btn btn-ultra" href={TEL}><Icon name="phone" /> Call now</a>
           <a className="btn btn-line" href={wa('Hi Draveta, I want to build something.')} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" /> WhatsApp</a>
         </div>
       </div>

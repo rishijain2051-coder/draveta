@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { MARK, WORD, WORD_BOX } from '../brand.js'
 
-// Pen plotter: the mark is plotted in one stroke on a blueprint sheet, a CAD crosshair
+// Pen plotter: the mark is plotted in one stroke on a blueprint sheet, a crosshair
 // chases the pen, then the sheet splits along the mark's own 45° diagonal.
 // Hero construction starts when the split begins (event 'drv:loaded').
 
@@ -22,7 +22,6 @@ export default function Loader() {
   const [phase, setPhase] = useState('plot') // plot → filled → split → gone
   const root = useRef(null)
   const pen = useRef(null)
-  const readout = useRef(null)
   const pct = useRef(null)
   const go = useRef(null)
 
@@ -62,11 +61,9 @@ export default function Loader() {
       const m = p.getScreenCTM()
       const x = m.a * pt.x + m.c * pt.y + m.e
       const y = m.b * pt.x + m.d * pt.y + m.f
-      const box = p.ownerSVGElement.getBoundingClientRect()
       el.style.setProperty('--p', e.toFixed(4))
       el.style.setProperty('--x', `${x.toFixed(1)}px`)
       el.style.setProperty('--y', `${y.toFixed(1)}px`)
-      readout.current.textContent = `X ${(((x - box.left) / box.width) * 258).toFixed(2).padStart(6, '0')}  Y ${(((y - box.top) / box.height) * 258).toFixed(2).padStart(6, '0')}`
       pct.current.textContent = String(Math.round(e * 100)).padStart(3, '0')
       if (t < 1) raf = requestAnimationFrame(tick)
       else finish()
@@ -89,7 +86,6 @@ export default function Loader() {
       <div className="ld-half ld-b"><Sheet /></div>
       <div className="ld-hud">
         <span className="ld-h" /><span className="ld-v" /><span className="ld-tip" />
-        <span className="ld-read" ref={readout}>X 000.00  Y 000.00</span>
         <div className="ld-rule"><span /></div>
         <p className="ld-pct"><span>Plotting the mark</span><b ref={pct}>000</b><span>%</span></p>
         <p className="ld-skip">Tap to skip</p>

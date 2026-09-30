@@ -31,7 +31,7 @@ export default function Hero() {
 
     const fit = () => {
       const a = area.current.getBoundingClientRect()
-      const [W, H] = small.matches ? [470, 560] : [760, 800]
+      const [W, H] = small.matches ? [330, 620] : [760, 800]
       set('--fit', Math.min(a.width / W, a.height / H, 1.15).toFixed(3))
     }
     fit()
@@ -102,13 +102,13 @@ export default function Hero() {
             <Frame className="f-jobs" name="T-Job Sheet" w={440} h={250} f0={0.2} r0={0.52}><JobSheet /></Frame>
             <Frame className="f-phone" name="Sticker Scanner" w={250} h={540} f0={0.15} r0={0.46}><Scanner live={live} /></Frame>
           </div>
+          <p className="hero-note">Illustrative demos with sample data</p>
         </div>
 
         <div className="hero-hint" aria-hidden="true">
           <svg viewBox="0 0 12 64"><path d="M6 0V60M1 54l5 8 5-8" /></svg>
           <span>Scroll to build</span>
         </div>
-        <p className="hero-note">Illustrative demos with sample data</p>
       </div>
     </section>
   )
